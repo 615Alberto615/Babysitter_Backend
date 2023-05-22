@@ -12,7 +12,7 @@ import org.springframework.web.bind.annotation.RestController;
 import java.util.List;
 
 @RestController
-@RequestMapping("/api/v1/babysitter")
+@RequestMapping("/api/v1/child")
 public class ChildApi {
     @Autowired
     private ChildBl childBl;
