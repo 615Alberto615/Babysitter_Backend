@@ -1,5 +1,7 @@
 package com.softbabysi.demo.Dto;
 
+import com.softbabysi.demo.entity.Child;
+
 public class ChildCareFormDto {
     private Integer childCareFormId;
     private Integer childId;
@@ -15,7 +17,7 @@ public class ChildCareFormDto {
     private String fromField10;
     private String fromField11;
 
-    public ChildCareFormDto() {
+    public ChildCareFormDto(Integer childCareFormId, Child childId, String fromField1, String fromField2, String fromField3, String fromField4, String fromField5, String fromField6, String fromField7, String fromField8, String fromField9, String fromField10, String fromField11) {
     }
 
     public ChildCareFormDto(Integer childCareFormId, Integer childId, String fromField1, String fromField2, String fromField3, String fromField4, String fromField5, String fromField6, String fromField7, String fromField8, String fromField9, String fromField10, String fromField11) {
