@@ -1,7 +1,9 @@
 package com.softbabysi.demo.entity;
 import jakarta.persistence.*;
 import java.io.Serializable;
+import java.util.ArrayList;
 import java.util.Date;
+import java.util.List;
 
 @Entity
 @Table(name = "BOOKING")
@@ -46,6 +48,7 @@ public class Booking implements Serializable {
 
     @Column(name = "BOOKING_PAID", nullable = false)
     private Boolean bookingPaid;
+
 
     // Getters and setters...
 
