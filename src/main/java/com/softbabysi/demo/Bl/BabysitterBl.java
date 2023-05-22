@@ -1,20 +1,35 @@
 package com.softbabysi.demo.Bl;
 
+import com.softbabysi.demo.Dto.BabysitterDto;
 import com.softbabysi.demo.dao.BabySitterRepository;
+import com.softbabysi.demo.dao.BabysitterDao;
 import com.softbabysi.demo.entity.Babysitter;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
 
+import java.util.ArrayList;
 import java.util.List;
-
+@Service
 public class BabysitterBl {
-    private BabySitterRepository babySitterRepository;
-    public BabysitterBl(BabySitterRepository babySitterRepository){
-        this.babySitterRepository=babySitterRepository;
+    @Autowired
+    private BabysitterDao babySitterDao;
+    public List<BabysitterDto> getAllBabysitter(){
+        List<Babysitter> babysitters=babySitterDao.getAllBabysitter();
 
+        List<BabysitterDto> res= new ArrayList<>();
+        babysitters.forEach(babysitter -> {
+            res.add(new BabysitterDto(babysitter.getBabysitterId(),babysitter.getUser().getUserId(),
+                    babysitter.getBabysitterUrl(),babysitter.getBabysitterStatus(),babysitter.getBabysitterCI(),
+                    babysitter.getBabysitterExtension(),babysitter.getBabysitterProfilePhoto(),babysitter.getBabysitterPhoneContact(),
+                    babysitter.getBabysitterDescription(),babysitter.getBabysitterVerify()));
+        });
+        return res;
     }
-    public Babysitter save(Babysitter newBabysitter){
-        return babySitterRepository.save(newBabysitter);
-    }
-    public List<Babysitter> findAll(){
-        return babySitterRepository.findAll();
-    }
+    //saveAndFlush
+
+
+    /*
+    Documents
+
+     */
 }

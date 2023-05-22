@@ -1,0 +1,122 @@
+package com.softbabysi.demo.Dto;
+
+import java.util.Date;
+
+public class BookingDto {
+    private Integer bookingId;
+    private Integer babysitterId;
+    private Integer tutorId;
+    private String bookingChild;
+    private Integer bookingEstimatedTime;
+    private Date bookingTimeStart;
+    private Date bookingTimeEnd;
+    private Date bookingDate;
+    private Boolean bookingStatus;
+    private Integer bookingCompleted;
+    private Boolean bookingPaid;
+
+    public BookingDto() {
+    }
+
+    public BookingDto(Integer bookingId, Integer babysitterId, Integer tutorId, String bookingChild, Integer bookingEstimatedTime, Date bookingTimeStart, Date bookingTimeEnd, Date bookingDate, Boolean bookingStatus, Integer bookingCompleted, Boolean bookingPaid) {
+        this.bookingId = bookingId;
+        this.babysitterId = babysitterId;
+        this.tutorId = tutorId;
+        this.bookingChild = bookingChild;
+        this.bookingEstimatedTime = bookingEstimatedTime;
+        this.bookingTimeStart = bookingTimeStart;
+        this.bookingTimeEnd = bookingTimeEnd;
+        this.bookingDate = bookingDate;
+        this.bookingStatus = bookingStatus;
+        this.bookingCompleted = bookingCompleted;
+        this.bookingPaid = bookingPaid;
+    }
+
+    public Integer getBookingId() {
+        return bookingId;
+    }
+
+    public void setBookingId(Integer bookingId) {
+        this.bookingId = bookingId;
+    }
+
+    public Integer getBabysitterId() {
+        return babysitterId;
+    }
+
+    public void setBabysitterId(Integer babysitterId) {
+        this.babysitterId = babysitterId;
+    }
+
+    public Integer getTutorId() {
+        return tutorId;
+    }
+
+    public void setTutorId(Integer tutorId) {
+        this.tutorId = tutorId;
+    }
+
+    public String getBookingChild() {
+        return bookingChild;
+    }
+
+    public void setBookingChild(String bookingChild) {
+        this.bookingChild = bookingChild;
+    }
+
+    public Integer getBookingEstimatedTime() {
+        return bookingEstimatedTime;
+    }
+
+    public void setBookingEstimatedTime(Integer bookingEstimatedTime) {
+        this.bookingEstimatedTime = bookingEstimatedTime;
+    }
+
+    public Date getBookingTimeStart() {
+        return bookingTimeStart;
+    }
+
+    public void setBookingTimeStart(Date bookingTimeStart) {
+        this.bookingTimeStart = bookingTimeStart;
+    }
+
+    public Date getBookingTimeEnd() {
+        return bookingTimeEnd;
+    }
+
+    public void setBookingTimeEnd(Date bookingTimeEnd) {
+        this.bookingTimeEnd = bookingTimeEnd;
+    }
+
+    public Date getBookingDate() {
+        return bookingDate;
+    }
+
+    public void setBookingDate(Date bookingDate) {
+        this.bookingDate = bookingDate;
+    }
+
+    public Boolean getBookingStatus() {
+        return bookingStatus;
+    }
+
+    public void setBookingStatus(Boolean bookingStatus) {
+        this.bookingStatus = bookingStatus;
+    }
+
+    public Integer getBookingCompleted() {
+        return bookingCompleted;
+    }
+
+    public void setBookingCompleted(Integer bookingCompleted) {
+        this.bookingCompleted = bookingCompleted;
+    }
+
+    public Boolean getBookingPaid() {
+        return bookingPaid;
+    }
+
+    public void setBookingPaid(Boolean bookingPaid) {
+        this.bookingPaid = bookingPaid;
+    }
+}

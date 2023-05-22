@@ -1,63 +1,26 @@
-package com.softbabysi.demo.entity;
+package com.softbabysi.demo.Dto;
 
-import jakarta.persistence.*;
-import java.io.Serializable;
-
-@Entity
-@Table(name = "SE_BABYSITTER")
-public class Babysitter{
-
-    @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
-    @Column(name = "BABYSITTER_ID", nullable = false)
+public class BabysitterDto {
     private Integer babysitterId;
-    /*
-    @Column(name = "USER_ID", nullable = false)
-    private Integer userId;
-    */
-
-    @ManyToOne(fetch = FetchType.LAZY)
-    @JoinColumn(name = "USER_ID", nullable = false)
-    private User user;
-
-    @Column(name = "BABYSITTER_URL", nullable = false)
+    private Integer UserId;
     private String babysitterUrl;
-
-    @Column(name = "BABYSITTER_STATUS", nullable = false,columnDefinition = "boolean default true")
-    private Boolean babysitterStatus;
-
-    @Column(name = "BAYSITTER_CI", nullable = false)
-    private String babysitterCI;
-
-    @Column(name = "BABYSITTER_EXTENSION", nullable = false)
+    private boolean babysitterStatus;
+    private String babysitterCi;
     private String babysitterExtension;
-
-    @Column(name = "BABYSITTER_PROFILE_PHOTO", nullable = false)
     private String babysitterProfilePhoto;
-
-    @Column(name = "BABYSITTER_PHONE_CONTACT", nullable = false)
     private String babysitterPhoneContact;
-
-    @Column(name = "BABYSITTER_DESCRIPTION", nullable = false)
     private String babysitterDescription;
+    private boolean babysitterVerify;
 
-    @Column(name = "BABYSITTER_VERIFY", nullable = false, columnDefinition = "boolean default false")
-    private Boolean babysitterVerify;
-
-    // Getters and setters...
-
-    public Babysitter() {
+    public BabysitterDto() {
     }
 
-    public Babysitter(Integer babysitterId, User user, String babysitterUrl,
-                      Boolean babysitterStatus, String babysitterCI, String babysitterExtension,
-                      String babysitterProfilePhoto, String babysitterPhoneContact, String babysitterDescription,
-                      Boolean babysitterVerify) {
+    public BabysitterDto(Integer babysitterId, Integer userId, String babysitterUrl, boolean babysitterStatus, String babysitterCi, String babysitterExtension, String babysitterProfilePhoto, String babysitterPhoneContact, String babysitterDescription, boolean babysitterVerify) {
         this.babysitterId = babysitterId;
-        this.user = user;
+        UserId = userId;
         this.babysitterUrl = babysitterUrl;
         this.babysitterStatus = babysitterStatus;
-        this.babysitterCI = babysitterCI;
+        this.babysitterCi = babysitterCi;
         this.babysitterExtension = babysitterExtension;
         this.babysitterProfilePhoto = babysitterProfilePhoto;
         this.babysitterPhoneContact = babysitterPhoneContact;
@@ -73,12 +36,12 @@ public class Babysitter{
         this.babysitterId = babysitterId;
     }
 
-    public User getUser() {
-        return user;
+    public Integer getUserId() {
+        return UserId;
     }
 
-    public void setUser(User user) {
-        this.user = user;
+    public void setUserId(Integer userId) {
+        UserId = userId;
     }
 
     public String getBabysitterUrl() {
@@ -89,20 +52,20 @@ public class Babysitter{
         this.babysitterUrl = babysitterUrl;
     }
 
-    public Boolean getBabysitterStatus() {
+    public boolean getBabysitterStatus() {
         return babysitterStatus;
     }
 
-    public void setBabysitterStatus(Boolean babysitterStatus) {
+    public void setBabysitterStatus(boolean babysitterStatus) {
         this.babysitterStatus = babysitterStatus;
     }
 
     public String getBabysitterCI() {
-        return babysitterCI;
+        return babysitterCi;
     }
 
-    public void setBabysitterCI(String babysitterCI) {
-        this.babysitterCI = babysitterCI;
+    public void setBabysitterCi(String babysitterCi) {
+        this.babysitterCi = babysitterCi;
     }
 
     public String getBabysitterExtension() {
@@ -143,5 +106,21 @@ public class Babysitter{
 
     public void setBabysitterVerify(Boolean babysitterVerify) {
         this.babysitterVerify = babysitterVerify;
+    }
+
+    @Override
+    public String toString() {
+        return "BabysitterDto{" +
+                "babysitterId=" + babysitterId +
+                ", UserId=" + UserId +
+                ", babysitterUrl='" + babysitterUrl + '\'' +
+                ", babysitterStatus=" + babysitterStatus +
+                ", babysitterCi='" + babysitterCi + '\'' +
+                ", babysitterExtension='" + babysitterExtension + '\'' +
+                ", babysitterProfilePhoto='" + babysitterProfilePhoto + '\'' +
+                ", babysitterPhoneContact='" + babysitterPhoneContact + '\'' +
+                ", babysitterDescription='" + babysitterDescription + '\'' +
+                ", babysitterVerify=" + babysitterVerify +
+                '}';
     }
 }
