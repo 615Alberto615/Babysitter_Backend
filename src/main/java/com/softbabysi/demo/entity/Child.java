@@ -30,12 +30,19 @@ public class Child implements Serializable {
     @Column(name = "CHILD_TUTOR", nullable = false)
     private Integer childTutor;
 
+    @OneToOne(cascade = CascadeType.ALL)
+    @JoinColumn(name = "CHILD_ID", referencedColumnName = "CHILD_ID")
+    private ChildCareForm childCareForm;
+
     // Getters and setters...
+
+    // Otros métodos...
+
 
     public Child() {
     }
 
-    public Child(Integer childId, Tutor tutor, String childName, String childBirthdate, String childPhoneEmergency, Integer childGender, Integer childTutor) {
+    public Child(Integer childId, Tutor tutor, String childName, String childBirthdate, String childPhoneEmergency, Integer childGender, Integer childTutor, ChildCareForm childCareForm) {
         this.childId = childId;
         this.tutor = tutor;
         this.childName = childName;
@@ -43,6 +50,7 @@ public class Child implements Serializable {
         this.childPhoneEmergency = childPhoneEmergency;
         this.childGender = childGender;
         this.childTutor = childTutor;
+        this.childCareForm = childCareForm;
     }
 
     public Integer getChildId() {
@@ -99,5 +107,13 @@ public class Child implements Serializable {
 
     public void setChildTutor(Integer childTutor) {
         this.childTutor = childTutor;
+    }
+
+    public ChildCareForm getChildCareForm() {
+        return childCareForm;
+    }
+
+    public void setChildCareForm(ChildCareForm childCareForm) {
+        this.childCareForm = childCareForm;
     }
 }
