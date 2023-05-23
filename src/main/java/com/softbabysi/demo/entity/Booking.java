@@ -49,6 +49,8 @@ public class Booking implements Serializable {
     @Column(name = "BOOKING_PAID", nullable = false)
     private Boolean bookingPaid;
 
+    @OneToMany(mappedBy = "booking", cascade = CascadeType.ALL)
+    private List<Notification> notifications;
 
     // Getters and setters...
 

@@ -2,20 +2,17 @@ package com.softbabysi.demo.entity;
 
 import jakarta.persistence.*;
 
-import java.io.Serializable;
-
 @Entity
 @Table(name = "CHILD_CARE_FORM")
-public class ChildCareForm implements Serializable {
-
+public class ChildCareForm {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "CHILD_CARE_FORM_ID", nullable = false)
     private Integer childCareFormId;
 
-    @OneToOne(fetch = FetchType.LAZY, mappedBy = "childCareForm")
+    @OneToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "CHILD_ID", nullable = false, unique = true)
-    private Child childId;
+    private Child child;
 
     @Column(name = "FROM_FIELD_1", nullable = false)
     private String fromField1;
@@ -55,12 +52,9 @@ public class ChildCareForm implements Serializable {
     public ChildCareForm() {
     }
 
-    // Constructor con todos los parámetros...
-
-
-    public ChildCareForm(Integer childCareFormId, Child childId, String fromField1, String fromField2, String fromField3, String fromField4, String fromField5, String fromField6, String fromField7, String fromField8, String fromField9, String fromField10, String fromField11) {
+    public ChildCareForm(Integer childCareFormId, Child child, String fromField1, String fromField2, String fromField3, String fromField4, String fromField5, String fromField6, String fromField7, String fromField8, String fromField9, String fromField10, String fromField11) {
         this.childCareFormId = childCareFormId;
-        this.childId = childId;
+        this.child = child;
         this.fromField1 = fromField1;
         this.fromField2 = fromField2;
         this.fromField3 = fromField3;
@@ -82,12 +76,12 @@ public class ChildCareForm implements Serializable {
         this.childCareFormId = childCareFormId;
     }
 
-    public Child getChildId() {
-        return childId;
+    public Child getChild() {
+        return child;
     }
 
-    public void setChildId(Child childId) {
-        this.childId = childId;
+    public void setChild(Child child) {
+        this.child = child;
     }
 
     public String getFromField1() {

@@ -17,14 +17,14 @@ public class Notification implements Serializable {
     private Booking booking;
 
     @Column(name = "NOTIFICATION_MESSAGE", nullable = false)
-    private Integer notificationMessage;
+    private String notificationMessage;
 
     // Getters and setters...
 
     public Notification() {
     }
 
-    public Notification(Integer notificationId, Booking booking, Integer notificationMessage) {
+    public Notification(Integer notificationId, Booking booking, String notificationMessage) {
         this.notificationId = notificationId;
         this.booking = booking;
         this.notificationMessage = notificationMessage;
@@ -46,11 +46,11 @@ public class Notification implements Serializable {
         this.booking = booking;
     }
 
-    public Integer getNotificationMessage() {
+    public String getNotificationMessage() {
         return notificationMessage;
     }
 
-    public void setNotificationMessage(Integer notificationMessage) {
+    public void setNotificationMessage(String notificationMessage) {
         this.notificationMessage = notificationMessage;
     }
 }

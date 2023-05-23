@@ -4,12 +4,12 @@ public class NotificationDto {
 
     private Integer notificationId;
     private Integer bookingId;
-    private Integer notificationMessage;
+    private String notificationMessage;
 
     public NotificationDto() {
     }
 
-    public NotificationDto(Integer notificationId, Integer bookingId, Integer notificationMessage) {
+    public NotificationDto(Integer notificationId, Integer bookingId, String notificationMessage) {
         this.notificationId = notificationId;
         this.bookingId = bookingId;
         this.notificationMessage = notificationMessage;
@@ -31,11 +31,11 @@ public class NotificationDto {
         this.bookingId = bookingId;
     }
 
-    public Integer getNotificationMessage() {
+    public String getNotificationMessage() {
         return notificationMessage;
     }
 
-    public void setNotificationMessage(Integer notificationMessage) {
+    public void setNotificationMessage(String notificationMessage) {
         this.notificationMessage = notificationMessage;
     }
 }

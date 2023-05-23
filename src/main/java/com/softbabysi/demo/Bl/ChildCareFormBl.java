@@ -15,15 +15,23 @@ public class ChildCareFormBl {
     private ChildCareFormDao childCareFormDao;
 
     public List<ChildCareFormDto> getAllChildCareForm(){
-        List<ChildCareForm> childCareForms=childCareFormDao.getAllChildCareForm();
+        List<ChildCareForm> childCareForms = childCareFormDao.getAllChildCareForm();
 
-        List<ChildCareFormDto> res= new ArrayList<>();
+        List<ChildCareFormDto> res = new ArrayList<>();
         childCareForms.forEach(childCareForm -> {
-            res.add(new ChildCareFormDto(childCareForm.getChildCareFormId(),childCareForm.getChildId(),
-                    childCareForm.getFromField1(),childCareForm.getFromField2(),childCareForm.getFromField3(),
-                    childCareForm.getFromField4(),childCareForm.getFromField5(),childCareForm.getFromField6(),
-                    childCareForm.getFromField7(),childCareForm.getFromField8(),childCareForm.getFromField9(),
-                    childCareForm.getFromField10(),childCareForm.getFromField11()));
+            res.add(new ChildCareFormDto(childCareForm.getChildCareFormId(),
+                    childCareForm.getChild().getChildId(),
+                    childCareForm.getFromField1(),
+                    childCareForm.getFromField2(),
+                    childCareForm.getFromField3(),
+                    childCareForm.getFromField4(),
+                    childCareForm.getFromField5(),
+                    childCareForm.getFromField6(),
+                    childCareForm.getFromField7(),
+                    childCareForm.getFromField8(),
+                    childCareForm.getFromField9(),
+                    childCareForm.getFromField10(),
+                    childCareForm.getFromField11()));
         });
         return res;
     }
