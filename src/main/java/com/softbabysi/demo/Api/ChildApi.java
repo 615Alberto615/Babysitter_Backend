@@ -4,6 +4,8 @@ import com.softbabysi.demo.Bl.ChildBl;
 import com.softbabysi.demo.Dto.ChildDto;
 import com.softbabysi.demo.Dto.ChildFormDto;
 import com.softbabysi.demo.Dto.ResponseDto;
+import com.softbabysi.demo.entity.Child;
+import com.softbabysi.demo.entity.ChildActivitiesForm;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
@@ -24,7 +26,7 @@ public class ChildApi {
 
     //Se agrega un niño
     @PostMapping(path = "/")
-    public ResponseEntity<ResponseDto<String>> createChild(@RequestBody ChildFormDto childFormDto){
+    public ResponseEntity<ResponseDto<Child>> createChild(@RequestBody ChildFormDto childFormDto){
         childBl.createChild(childFormDto);
         try {
             return ResponseEntity.ok(new ResponseDto<>(200, null, "Babysitter created"));
@@ -34,5 +36,9 @@ public class ChildApi {
         }
 
     }
+
+
+
+
 
 }
