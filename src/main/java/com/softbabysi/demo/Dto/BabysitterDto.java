@@ -3,11 +3,9 @@ package com.softbabysi.demo.Dto;
 public class BabysitterDto {
     private Integer babysitterId;
     private Integer UserId;
-    private String babysitterUrl;
     private boolean babysitterStatus;
     private String babysitterCi;
     private String babysitterExtension;
-    private String babysitterProfilePhoto;
     private String babysitterPhoneContact;
     private String babysitterDescription;
     private boolean babysitterVerify;
@@ -15,14 +13,12 @@ public class BabysitterDto {
     public BabysitterDto() {
     }
 
-    public BabysitterDto(Integer babysitterId, Integer userId, String babysitterUrl, boolean babysitterStatus, String babysitterCi, String babysitterExtension, String babysitterProfilePhoto, String babysitterPhoneContact, String babysitterDescription, boolean babysitterVerify) {
+    public BabysitterDto(Integer babysitterId, Integer userId, boolean babysitterStatus, String babysitterCi, String babysitterExtension, String babysitterPhoneContact, String babysitterDescription, boolean babysitterVerify) {
         this.babysitterId = babysitterId;
         UserId = userId;
-        this.babysitterUrl = babysitterUrl;
         this.babysitterStatus = babysitterStatus;
         this.babysitterCi = babysitterCi;
         this.babysitterExtension = babysitterExtension;
-        this.babysitterProfilePhoto = babysitterProfilePhoto;
         this.babysitterPhoneContact = babysitterPhoneContact;
         this.babysitterDescription = babysitterDescription;
         this.babysitterVerify = babysitterVerify;
@@ -44,15 +40,7 @@ public class BabysitterDto {
         UserId = userId;
     }
 
-    public String getBabysitterUrl() {
-        return babysitterUrl;
-    }
-
-    public void setBabysitterUrl(String babysitterUrl) {
-        this.babysitterUrl = babysitterUrl;
-    }
-
-    public boolean getBabysitterStatus() {
+    public boolean isBabysitterStatus() {
         return babysitterStatus;
     }
 
@@ -60,7 +48,7 @@ public class BabysitterDto {
         this.babysitterStatus = babysitterStatus;
     }
 
-    public String getBabysitterCI() {
+    public String getBabysitterCi() {
         return babysitterCi;
     }
 
@@ -74,14 +62,6 @@ public class BabysitterDto {
 
     public void setBabysitterExtension(String babysitterExtension) {
         this.babysitterExtension = babysitterExtension;
-    }
-
-    public String getBabysitterProfilePhoto() {
-        return babysitterProfilePhoto;
-    }
-
-    public void setBabysitterProfilePhoto(String babysitterProfilePhoto) {
-        this.babysitterProfilePhoto = babysitterProfilePhoto;
     }
 
     public String getBabysitterPhoneContact() {
@@ -100,11 +80,11 @@ public class BabysitterDto {
         this.babysitterDescription = babysitterDescription;
     }
 
-    public Boolean getBabysitterVerify() {
+    public boolean isBabysitterVerify() {
         return babysitterVerify;
     }
 
-    public void setBabysitterVerify(Boolean babysitterVerify) {
+    public void setBabysitterVerify(boolean babysitterVerify) {
         this.babysitterVerify = babysitterVerify;
     }
 
@@ -113,11 +93,9 @@ public class BabysitterDto {
         return "BabysitterDto{" +
                 "babysitterId=" + babysitterId +
                 ", UserId=" + UserId +
-                ", babysitterUrl='" + babysitterUrl + '\'' +
                 ", babysitterStatus=" + babysitterStatus +
                 ", babysitterCi='" + babysitterCi + '\'' +
                 ", babysitterExtension='" + babysitterExtension + '\'' +
-                ", babysitterProfilePhoto='" + babysitterProfilePhoto + '\'' +
                 ", babysitterPhoneContact='" + babysitterPhoneContact + '\'' +
                 ", babysitterDescription='" + babysitterDescription + '\'' +
                 ", babysitterVerify=" + babysitterVerify +

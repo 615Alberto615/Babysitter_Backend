@@ -38,4 +38,13 @@ public class NotificationDto {
     public void setNotificationMessage(String notificationMessage) {
         this.notificationMessage = notificationMessage;
     }
+
+    @Override
+    public String toString() {
+        return "NotificationDto{" +
+                "notificationId=" + notificationId +
+                ", bookingId=" + bookingId +
+                ", notificationMessage='" + notificationMessage + '\'' +
+                '}';
+    }
 }

@@ -79,4 +79,17 @@ public class ScheduleDto {
     public void setScheduleEndDate(String scheduleEndDate) {
         this.scheduleEndDate = scheduleEndDate;
     }
+
+    @Override
+    public String toString() {
+        return "ScheduleDto{" +
+                "scheduleId=" + scheduleId +
+                ", babysitterId=" + babysitterId +
+                ", scheduleDayWeek='" + scheduleDayWeek + '\'' +
+                ", scheduleStartTime='" + scheduleStartTime + '\'' +
+                ", scheduleEndTime='" + scheduleEndTime + '\'' +
+                ", scheduleStartDate='" + scheduleStartDate + '\'' +
+                ", scheduleEndDate='" + scheduleEndDate + '\'' +
+                '}';
+    }
 }

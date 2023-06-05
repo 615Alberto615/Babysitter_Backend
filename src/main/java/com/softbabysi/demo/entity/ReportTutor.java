@@ -77,4 +77,15 @@ public class ReportTutor {
     public void setReportTutorDate(Date reportTutorDate) {
         this.reportTutorDate = reportTutorDate;
     }
+
+    @Override
+    public String toString() {
+        return "ReportTutor{" +
+                "reportTutorId=" + reportTutorId +
+                ", tutor=" + tutor +
+                ", babysitter=" + babysitter +
+                ", reportTutorDeclaration='" + reportTutorDeclaration + '\'' +
+                ", reportTutorDate=" + reportTutorDate +
+                '}';
+    }
 }

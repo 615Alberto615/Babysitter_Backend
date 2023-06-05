@@ -69,4 +69,16 @@ public class ScheduleExceptionDto {
     public void setExceptionDate(Date exceptionDate) {
         this.exceptionDate = exceptionDate;
     }
+
+    @Override
+    public String toString() {
+        return "ScheduleExceptionDto{" +
+                "exceptionId=" + exceptionId +
+                ", scheduleId=" + scheduleId +
+                ", exceptionDay='" + exceptionDay + '\'' +
+                ", exceptionStartTime=" + exceptionStartTime +
+                ", exceptionEndTime=" + exceptionEndTime +
+                ", exceptionDate=" + exceptionDate +
+                '}';
+    }
 }

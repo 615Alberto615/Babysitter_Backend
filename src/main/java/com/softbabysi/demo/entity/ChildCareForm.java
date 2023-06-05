@@ -171,4 +171,23 @@ public class ChildCareForm {
     public void setFromField11(String fromField11) {
         this.fromField11 = fromField11;
     }
+
+    @Override
+    public String toString() {
+        return "ChildCareForm{" +
+                "childCareFormId=" + childCareFormId +
+                ", child=" + child +
+                ", fromField1='" + fromField1 + '\'' +
+                ", fromField2='" + fromField2 + '\'' +
+                ", fromField3='" + fromField3 + '\'' +
+                ", fromField4='" + fromField4 + '\'' +
+                ", fromField5='" + fromField5 + '\'' +
+                ", fromField6='" + fromField6 + '\'' +
+                ", fromField7='" + fromField7 + '\'' +
+                ", fromField8='" + fromField8 + '\'' +
+                ", fromField9='" + fromField9 + '\'' +
+                ", fromField10='" + fromField10 + '\'' +
+                ", fromField11='" + fromField11 + '\'' +
+                '}';
+    }
 }

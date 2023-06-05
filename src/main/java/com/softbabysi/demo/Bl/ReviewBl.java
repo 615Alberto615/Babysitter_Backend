@@ -19,8 +19,7 @@ public class ReviewBl {
 
         List<ReviewDto> res= new ArrayList<>();
         reviews.forEach(review -> {
-            res.add(new ReviewDto(review.getReviewId(),review.getTutor().getTutorId(),
-                    review.getBabysitter().getBabysitterId(),review.getReview(),review.getStars()));
+            res.add(new ReviewDto(review.getReviewId(),review.getBooking().getBookingId(),review.getReview(),review.getStars()));
         });
         return res;
     }

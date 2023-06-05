@@ -38,4 +38,12 @@ public class TypeAbility {
     public void setAbility(String ability) {
         this.ability = ability;
     }
+
+    @Override
+    public String toString() {
+        return "TypeAbility{" +
+                "typeAbilityId=" + typeAbilityId +
+                ", ability='" + ability + '\'' +
+                '}';
+    }
 }

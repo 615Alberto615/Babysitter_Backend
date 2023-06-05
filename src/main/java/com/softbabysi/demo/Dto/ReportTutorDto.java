@@ -59,4 +59,15 @@ public class ReportTutorDto {
     public void setReportTutorDate(Date reportTutorDate) {
         this.reportTutorDate = reportTutorDate;
     }
+
+    @Override
+    public String toString() {
+        return "ReportTutorDto{" +
+                "reportTutorId=" + reportTutorId +
+                ", tutorId=" + tutorId +
+                ", babysitterId=" + babysitterId +
+                ", reportTutorDeclaration='" + reportTutorDeclaration + '\'' +
+                ", reportTutorDate=" + reportTutorDate +
+                '}';
+    }
 }

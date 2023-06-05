@@ -36,4 +36,13 @@ public class AbilityBabysitterDto {
     public void setTypeAbilityId(Integer typeAbilityId) {
         this.typeAbilityId = typeAbilityId;
     }
+
+    @Override
+    public String toString() {
+        return "AbilityBabysitterDto{" +
+                "abilityBabysitterId=" + abilityBabysitterId +
+                ", babysitterId=" + babysitterId +
+                ", typeAbilityId=" + typeAbilityId +
+                '}';
+    }
 }

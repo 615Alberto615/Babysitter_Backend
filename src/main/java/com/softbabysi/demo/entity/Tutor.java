@@ -52,4 +52,13 @@ public class Tutor {
     public void setTutorStatus(Boolean tutorStatus) {
         this.tutorStatus = tutorStatus;
     }
+
+    @Override
+    public String toString() {
+        return "Tutor{" +
+                "tutorId=" + tutorId +
+                ", user=" + user +
+                ", tutorStatus=" + tutorStatus +
+                '}';
+    }
 }

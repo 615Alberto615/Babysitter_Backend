@@ -52,4 +52,13 @@ public class AbilityBabysitter {
     public void setTypeAbility(TypeAbility typeAbility) {
         this.typeAbility = typeAbility;
     }
+
+    @Override
+    public String toString() {
+        return "AbilityBabysitter{" +
+                "abilityBabysitterId=" + abilityBabysitterId +
+                ", babysitter=" + babysitter +
+                ", typeAbility=" + typeAbility +
+                '}';
+    }
 }

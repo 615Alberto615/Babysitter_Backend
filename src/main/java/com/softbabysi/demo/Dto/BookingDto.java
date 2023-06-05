@@ -119,4 +119,21 @@ public class BookingDto {
     public void setBookingPaid(Boolean bookingPaid) {
         this.bookingPaid = bookingPaid;
     }
+
+    @Override
+    public String toString() {
+        return "BookingDto{" +
+                "bookingId=" + bookingId +
+                ", babysitterId=" + babysitterId +
+                ", tutorId=" + tutorId +
+                ", bookingChild='" + bookingChild + '\'' +
+                ", bookingEstimatedTime=" + bookingEstimatedTime +
+                ", bookingTimeStart=" + bookingTimeStart +
+                ", bookingTimeEnd=" + bookingTimeEnd +
+                ", bookingDate=" + bookingDate +
+                ", bookingStatus=" + bookingStatus +
+                ", bookingCompleted=" + bookingCompleted +
+                ", bookingPaid=" + bookingPaid +
+                '}';
+    }
 }

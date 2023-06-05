@@ -33,5 +33,21 @@
 
         }
 
+        /*@GetMapping("/{id}")
+        public ResponseEntity<ResponseDto<BabysitterDto>> getBabysitterById(Long id){
+            ResponseDto<BabysitterDto> responseDto = new ResponseDto<>();
+            try {
+                responseDto.setCode(0000);
+                responseDto.setData(babysitterBl.getBabysitterById(id));
+                responseDto.setMessage("Babysitter retrieved successfully");
+                return ResponseEntity.ok(responseDto);
+            }catch (Exception e) {
+                responseDto.setCode(500);
+                responseDto.setMessage("error");
+                return ResponseEntity.ok(responseDto);
+            }
+
+        }*/
+
     }
     //

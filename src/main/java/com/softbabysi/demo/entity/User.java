@@ -3,6 +3,7 @@ package com.softbabysi.demo.entity;
 import jakarta.persistence.*;
 import java.io.Serializable;
 
+
 @Entity
 @Table(name = "SE_USER")
 public class User {
@@ -126,5 +127,20 @@ public class User {
 
     public void setUserStatus(Boolean userStatus) {
         this.userStatus = userStatus;
+    }
+
+    @Override
+    public String toString() {
+        return "User{" +
+                "userId=" + userId +
+                ", seLocationId=" + seLocationId +
+                ", userName='" + userName + '\'' +
+                ", userLastname='" + userLastname + '\'' +
+                ", userEmail='" + userEmail + '\'' +
+                ", userAddres='" + userAddres + '\'' +
+                ", userPhone='" + userPhone + '\'' +
+                ", userSecret='" + userSecret + '\'' +
+                ", userStatus=" + userStatus +
+                '}';
     }
 }

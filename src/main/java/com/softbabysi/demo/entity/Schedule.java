@@ -105,4 +105,17 @@ public class Schedule {
     public void setScheduleEndDate(Date scheduleEndDate) {
         this.scheduleEndDate = scheduleEndDate;
     }
+
+    @Override
+    public String toString() {
+        return "Schedule{" +
+                "scheduleId=" + scheduleId +
+                ", babysitter=" + babysitter +
+                ", scheduleDayWeek='" + scheduleDayWeek + '\'' +
+                ", scheduleStartTime=" + scheduleStartTime +
+                ", scheduleEndTime=" + scheduleEndTime +
+                ", scheduleStartDate=" + scheduleStartDate +
+                ", scheduleEndDate=" + scheduleEndDate +
+                '}';
+    }
 }

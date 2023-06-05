@@ -98,4 +98,18 @@ public class UserDto {
         this.userStatus = userStatus;
     }
 
+    @Override
+    public String toString() {
+        return "UserDto{" +
+                "userId=" + userId +
+                ", seLocationId=" + seLocationId +
+                ", userName='" + userName + '\'' +
+                ", userLastname='" + userLastname + '\'' +
+                ", userEmail='" + userEmail + '\'' +
+                ", userAddres='" + userAddres + '\'' +
+                ", userPhone='" + userPhone + '\'' +
+                ", userSecret='" + userSecret + '\'' +
+                ", userStatus=" + userStatus +
+                '}';
+    }
 }

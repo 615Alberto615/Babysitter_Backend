@@ -37,4 +37,13 @@ public class FavoriteDto {
     public void setBabysitterId(Integer babysitterId) {
         this.babysitterId = babysitterId;
     }
+
+    @Override
+    public String toString() {
+        return "FavoriteDto{" +
+                "favoriteId=" + favoriteId +
+                ", tutorId=" + tutorId +
+                ", babysitterId=" + babysitterId +
+                '}';
+    }
 }

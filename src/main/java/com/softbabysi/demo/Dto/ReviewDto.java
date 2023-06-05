@@ -2,18 +2,16 @@ package com.softbabysi.demo.Dto;
 
 public class ReviewDto {
     private Integer reviewId;
-    private Integer tutorId;
-    private Integer babysitterId;
+    private Integer bookingId;
     private String review;
     private Integer stars;
 
     public ReviewDto() {
     }
 
-    public ReviewDto(Integer reviewId, Integer tutorId, Integer babysitterId, String review, Integer stars) {
+    public ReviewDto(Integer reviewId, Integer bookingId, String review, Integer stars) {
         this.reviewId = reviewId;
-        this.tutorId = tutorId;
-        this.babysitterId = babysitterId;
+        this.bookingId = bookingId;
         this.review = review;
         this.stars = stars;
     }
@@ -26,20 +24,12 @@ public class ReviewDto {
         this.reviewId = reviewId;
     }
 
-    public Integer getTutorId() {
-        return tutorId;
+    public Integer getBookingId() {
+        return bookingId;
     }
 
-    public void setTutorId(Integer tutorId) {
-        this.tutorId = tutorId;
-    }
-
-    public Integer getBabysitterId() {
-        return babysitterId;
-    }
-
-    public void setBabysitterId(Integer babysitterId) {
-        this.babysitterId = babysitterId;
+    public void setBookingId(Integer bookingId) {
+        this.bookingId = bookingId;
     }
 
     public String getReview() {
@@ -56,5 +46,15 @@ public class ReviewDto {
 
     public void setStars(Integer stars) {
         this.stars = stars;
+    }
+
+    @Override
+    public String toString() {
+        return "ReviewDto{" +
+                "reviewId=" + reviewId +
+                ", bookingId=" + bookingId +
+                ", review='" + review + '\'' +
+                ", stars=" + stars +
+                '}';
     }
 }

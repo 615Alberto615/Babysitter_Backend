@@ -52,4 +52,13 @@ public class Favorite {
     public void setBabysitter(Babysitter babysitter) {
         this.babysitter = babysitter;
     }
+
+    @Override
+    public String toString() {
+        return "Favorite{" +
+                "favoriteId=" + favoriteId +
+                ", tutor=" + tutor +
+                ", babysitter=" + babysitter +
+                '}';
+    }
 }

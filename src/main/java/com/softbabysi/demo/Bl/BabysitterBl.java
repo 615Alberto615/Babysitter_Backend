@@ -18,14 +18,38 @@ public class BabysitterBl {
 
         List<BabysitterDto> res= new ArrayList<>();
         babysitters.forEach(babysitter -> {
-            res.add(new BabysitterDto(babysitter.getBabysitterId(),babysitter.getUser().getUserId(),
-                    babysitter.getBabysitterUrl(),babysitter.getBabysitterStatus(),babysitter.getBabysitterCI(),
-                    babysitter.getBabysitterExtension(),babysitter.getBabysitterProfilePhoto(),babysitter.getBabysitterPhoneContact(),
+            res.add(new BabysitterDto(babysitter.getBabysitterId(),babysitter.getUser().getUserId(),babysitter.getBabysitterStatus(),babysitter.getBabysitterCI(),
+                    babysitter.getBabysitterExtension(),babysitter.getBabysitterPhoneContact(),
                     babysitter.getBabysitterDescription(),babysitter.getBabysitterVerify()));
         });
         return res;
     }
+
+
+    // Obtener niñera por id
+
+
+
+
     //saveAndFlush
+
+
+
+    /*public BabysitterDto saveBabysitter(BabysitterDto babysitterDto){
+        Babysitter babysitter=new Babysitter();
+        babysitter.setBabysitterId(babysitterDto.getBabysitterId());
+        babysitter.setBabysitterStatus(true);
+        babysitter.setBabysitterCI(babysitterDto.getBabysitterCi());
+        babysitter.setBabysitterExtension(babysitterDto.getBabysitterExtension());
+        babysitter.setBabysitterPhoneContact(babysitterDto.getBabysitterPhoneContact());
+        babysitter.setBabysitterDescription(babysitterDto.getBabysitterDescription());
+        babysitter.setBabysitterVerify(false);
+        babysitter.setUser(babySitterDao.getUserById(babysitterDto.getUserId()));
+        babysitter=babySitterDao.saveAndFlush(babysitter);
+        babysitterDto.setBabysitterId(babysitter.getBabysitterId());
+        return babysitterDto;
+    }*/
+
 
 
     /*

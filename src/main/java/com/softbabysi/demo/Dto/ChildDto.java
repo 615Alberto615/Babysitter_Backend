@@ -78,4 +78,17 @@ public class ChildDto {
     public void setChildTutor(Integer childTutor) {
         this.childTutor = childTutor;
     }
+
+    @Override
+    public String toString() {
+        return "ChildDto{" +
+                "childId=" + childId +
+                ", tutorId=" + tutorId +
+                ", childName='" + childName + '\'' +
+                ", childBirthdate='" + childBirthdate + '\'' +
+                ", childPhoneEmergency='" + childPhoneEmergency + '\'' +
+                ", childGender=" + childGender +
+                ", childTutor=" + childTutor +
+                '}';
+    }
 }

@@ -26,5 +26,13 @@ public class TypeAbilityDto {
     public void setAbility(String ability) {
         this.ability = ability;
     }
+
+    @Override
+    public String toString() {
+        return "TypeAbilityDto{" +
+                "typeAbilityId=" + typeAbilityId +
+                ", ability='" + ability + '\'' +
+                '}';
+    }
 }
 

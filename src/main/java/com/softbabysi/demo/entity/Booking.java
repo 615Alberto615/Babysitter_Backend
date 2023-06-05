@@ -159,4 +159,22 @@ public class Booking implements Serializable {
     public void setBookingPaid(Boolean bookingPaid) {
         this.bookingPaid = bookingPaid;
     }
+
+    @Override
+    public String toString() {
+        return "Booking{" +
+                "bookingId=" + bookingId +
+                ", babysitter=" + babysitter +
+                ", tutor=" + tutor +
+                ", bookingChild='" + bookingChild + '\'' +
+                ", bookingEstimatedTime=" + bookingEstimatedTime +
+                ", bookingTimeStart=" + bookingTimeStart +
+                ", bookingTimeEnd=" + bookingTimeEnd +
+                ", bookingDate=" + bookingDate +
+                ", bookingStatus=" + bookingStatus +
+                ", bookingCompleted=" + bookingCompleted +
+                ", bookingPaid=" + bookingPaid +
+                ", notifications=" + notifications +
+                '}';
+    }
 }

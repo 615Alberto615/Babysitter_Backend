@@ -10,13 +10,9 @@ public class Review {
     @Column(name = "REVIEW_ID", nullable = false)
     private Integer reviewId;
 
-    @ManyToOne(fetch = FetchType.LAZY)
-    @JoinColumn(name = "TUTOR_ID", nullable = false)
-    private Tutor tutor;
-
-    @ManyToOne(fetch = FetchType.LAZY)
-    @JoinColumn(name = "BABYSITTER_ID", nullable = false)
-    private Babysitter babysitter;
+    @OneToOne(fetch = FetchType.LAZY)
+    @JoinColumn(name = "BOOKING_ID", nullable = false)
+    private Booking booking;
 
     @Column(name = "REVIEW", nullable = false, length = 4000)
     private String review;
@@ -29,15 +25,16 @@ public class Review {
     }
 
     // Constructor con todos los parámetros
-    public Review(Integer reviewId, Tutor tutor, Babysitter babysitter, String review, Integer stars) {
+
+    public Review(Integer reviewId, Booking booking, String review, Integer stars) {
         this.reviewId = reviewId;
-        this.tutor = tutor;
-        this.babysitter = babysitter;
+        this.booking = booking;
         this.review = review;
         this.stars = stars;
     }
 
     // Getters y setters
+
 
     public Integer getReviewId() {
         return reviewId;
@@ -47,20 +44,12 @@ public class Review {
         this.reviewId = reviewId;
     }
 
-    public Tutor getTutor() {
-        return tutor;
+    public Booking getBooking() {
+        return booking;
     }
 
-    public void setTutor(Tutor tutor) {
-        this.tutor = tutor;
-    }
-
-    public Babysitter getBabysitter() {
-        return babysitter;
-    }
-
-    public void setBabysitter(Babysitter babysitter) {
-        this.babysitter = babysitter;
+    public void setBooking(Booking booking) {
+        this.booking = booking;
     }
 
     public String getReview() {
@@ -77,5 +66,15 @@ public class Review {
 
     public void setStars(Integer stars) {
         this.stars = stars;
+    }
+
+    @Override
+    public String toString() {
+        return "Review{" +
+                "reviewId=" + reviewId +
+                ", booking=" + booking +
+                ", review='" + review + '\'' +
+                ", stars=" + stars +
+                '}';
     }
 }

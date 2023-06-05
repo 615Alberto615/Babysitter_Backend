@@ -37,4 +37,14 @@ public class TutorDto {
     public void setTutorStatus(boolean tutorStatus) {
         this.tutorStatus = tutorStatus;
     }
+
+    @Override
+    public String toString() {
+        return "TutorDto{" +
+                "tutorId=" + tutorId +
+                ", UserId=" + UserId +
+                ", tutorStatus=" + tutorStatus +
+                '}';
+    }
 }
+

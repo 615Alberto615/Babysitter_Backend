@@ -116,4 +116,18 @@ public class Child implements Serializable {
     public void setChildCareForm(ChildCareForm childCareForm) {
         this.childCareForm = childCareForm;
     }
+
+    @Override
+    public String toString() {
+        return "Child{" +
+                "childId=" + childId +
+                ", tutor=" + tutor +
+                ", childName='" + childName + '\'' +
+                ", childBirthdate='" + childBirthdate + '\'' +
+                ", childPhoneEmergency='" + childPhoneEmergency + '\'' +
+                ", childGender=" + childGender +
+                ", childTutor=" + childTutor +
+                ", childCareForm=" + childCareForm +
+                '}';
+    }
 }

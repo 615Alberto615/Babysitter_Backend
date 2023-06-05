@@ -1,8 +1,8 @@
 spring:
   datasource:
-    url: jdbc:postgresql://localhost:5432/babysitter_db
+    url: jdbc:postgresql://localhost:5432/ProyectoSoftware
     username: postgres
-    password: 123456
+    password: password
     driver-class-name: org.postgresql.Driver
   jpa:
     database-platform: org.hibernate.dialect.PostgreSQLDialect

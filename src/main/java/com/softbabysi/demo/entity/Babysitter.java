@@ -20,8 +20,6 @@ public class Babysitter{
     @JoinColumn(name = "USER_ID", nullable = false)
     private User user;
 
-    @Column(name = "BABYSITTER_URL", nullable = false)
-    private String babysitterUrl;
 
     @Column(name = "BABYSITTER_STATUS", nullable = false,columnDefinition = "boolean default true")
     private Boolean babysitterStatus;
@@ -32,8 +30,6 @@ public class Babysitter{
     @Column(name = "BABYSITTER_EXTENSION", nullable = false)
     private String babysitterExtension;
 
-    @Column(name = "BABYSITTER_PROFILE_PHOTO", nullable = false)
-    private String babysitterProfilePhoto;
 
     @Column(name = "BABYSITTER_PHONE_CONTACT", nullable = false)
     private String babysitterPhoneContact;
@@ -49,17 +45,12 @@ public class Babysitter{
     public Babysitter() {
     }
 
-    public Babysitter(Integer babysitterId, User user, String babysitterUrl,
-                      Boolean babysitterStatus, String babysitterCI, String babysitterExtension,
-                      String babysitterProfilePhoto, String babysitterPhoneContact, String babysitterDescription,
-                      Boolean babysitterVerify) {
+    public Babysitter(Integer babysitterId, User user, Boolean babysitterStatus, String babysitterCI, String babysitterExtension, String babysitterPhoneContact, String babysitterDescription, Boolean babysitterVerify) {
         this.babysitterId = babysitterId;
         this.user = user;
-        this.babysitterUrl = babysitterUrl;
         this.babysitterStatus = babysitterStatus;
         this.babysitterCI = babysitterCI;
         this.babysitterExtension = babysitterExtension;
-        this.babysitterProfilePhoto = babysitterProfilePhoto;
         this.babysitterPhoneContact = babysitterPhoneContact;
         this.babysitterDescription = babysitterDescription;
         this.babysitterVerify = babysitterVerify;
@@ -79,14 +70,6 @@ public class Babysitter{
 
     public void setUser(User user) {
         this.user = user;
-    }
-
-    public String getBabysitterUrl() {
-        return babysitterUrl;
-    }
-
-    public void setBabysitterUrl(String babysitterUrl) {
-        this.babysitterUrl = babysitterUrl;
     }
 
     public Boolean getBabysitterStatus() {
@@ -113,14 +96,6 @@ public class Babysitter{
         this.babysitterExtension = babysitterExtension;
     }
 
-    public String getBabysitterProfilePhoto() {
-        return babysitterProfilePhoto;
-    }
-
-    public void setBabysitterProfilePhoto(String babysitterProfilePhoto) {
-        this.babysitterProfilePhoto = babysitterProfilePhoto;
-    }
-
     public String getBabysitterPhoneContact() {
         return babysitterPhoneContact;
     }
@@ -144,4 +119,20 @@ public class Babysitter{
     public void setBabysitterVerify(Boolean babysitterVerify) {
         this.babysitterVerify = babysitterVerify;
     }
+
+    @Override
+    public String toString() {
+        return "Babysitter{" +
+                "babysitterId=" + babysitterId +
+                ", user=" + user +
+                ", babysitterStatus=" + babysitterStatus +
+                ", babysitterCI='" + babysitterCI + '\'' +
+                ", babysitterExtension='" + babysitterExtension + '\'' +
+                ", babysitterPhoneContact='" + babysitterPhoneContact + '\'' +
+                ", babysitterDescription='" + babysitterDescription + '\'' +
+                ", babysitterVerify=" + babysitterVerify +
+                '}';
+    }
+
+
 }
