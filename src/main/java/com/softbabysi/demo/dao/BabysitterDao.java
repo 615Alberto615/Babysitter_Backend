@@ -20,9 +20,9 @@ public class BabysitterDao {
         return babySitterRepository.saveAndFlush(babysitter);
     }
 
-    public Babysitter getUserById(Long id){
+    /*public Babysitter getUserById(Long id){
         return babySitterRepository.getOne(id);
-    }
+    }*/
 
 
 
