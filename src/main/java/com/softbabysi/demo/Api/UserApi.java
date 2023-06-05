@@ -11,7 +11,7 @@ import org.springframework.web.bind.annotation.*;
 import java.util.List;
 
 @RestController
-@RequestMapping("/api/vi/user")
+@RequestMapping("/api/v1/user")
 public class UserApi {
 
     @Autowired
@@ -25,6 +25,7 @@ public class UserApi {
         try {
             return ResponseEntity.ok(new ResponseDto<>(200, null, "Babysitter created"));
         }catch (Exception e){
+            e.printStackTrace();
             return ResponseEntity.ok(new ResponseDto<>(500, null, "Error"));
         }
 
@@ -57,6 +58,6 @@ public class UserApi {
     @GetMapping("")
     public ResponseEntity<ResponseDto<List<User>>> getAllUser(){
         ret
-    }
-     */
+    }
+     */
 }

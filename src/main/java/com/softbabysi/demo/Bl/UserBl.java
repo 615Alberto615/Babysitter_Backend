@@ -10,6 +10,7 @@ import com.softbabysi.demo.dao.UserRepository;
 import com.softbabysi.demo.entity.Babysitter;
 import com.softbabysi.demo.entity.Tutor;
 import com.softbabysi.demo.entity.User;
+import jakarta.transaction.Transactional;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -27,6 +28,7 @@ public class UserBl {
     private TutorRepository tutorRepository;
 
     //Crear una niñera
+    @Transactional
     public void createBabysitter(UserBabysitterDto userBabysitterDto){
         // Crear el primer registro en User
         User user = new User();
@@ -39,13 +41,16 @@ public class UserBl {
         user.setUserAddres(userBabysitterDto.getAddres());
         user.setUserStatus(true);
         userRepository.save(user);
+        userRepository.flush(); // flush after saving the user
         //Obtener el id generado por el save del anterior registro
         Integer userId = user.getUserId();
+        System.out.println("userId: " + userId);
+        System.out.println("userBabysitterDto: " + userBabysitterDto);
         // Crear el babysitter
         Babysitter babysitter = new Babysitter();
         babysitter.setUser(user);
         babysitter.setBabysitterStatus(true);
-        babysitter.setBabysitterCI(userBabysitterDto.getCI());
+        babysitter.setBabysitterCI("1233432");
         babysitter.setBabysitterExtension(userBabysitterDto.getExtension());
         babysitter.setBabysitterPhoneContact(userBabysitterDto.getPhoneContact());
         babysitter.setBabysitterDescription(userBabysitterDto.getDescription());
@@ -55,6 +60,8 @@ public class UserBl {
 
 
     //Crear un tutor
+    //Crear un tutor
+    @Transactional
     public void createTutor(UserDto userDto){
         // Crear el primer registro en User
         User user = new User();
@@ -67,6 +74,7 @@ public class UserBl {
         user.setUserAddres(userDto.getUserAddres());
         user.setUserStatus(true);
         userRepository.save(user);
+        userRepository.flush(); // flush after saving the user
         //Obtener el id generado por el save del anterior registro
         Integer userId = user.getUserId();
         // Crear el Tutor
@@ -75,6 +83,7 @@ public class UserBl {
         tutor.setTutorStatus(true);
         tutorRepository.save(tutor);
     }
+
     //Todos los usuarios activos
     public List<User> findUsersWhitStatusTrue(){
         List<User> users = userRepository.findAllUserStatus();
@@ -83,7 +92,7 @@ public class UserBl {
 
     //Usuario con id
     public User findUserById(Integer id){
-        User user = userRepository.findUserById(id);
+        User user = userRepository.findByUserId(id);
         return user;
     }
 
@@ -107,7 +116,7 @@ public class UserBl {
 
 
     /*
-    public (){
+    public (){
 
-     */
+     */
 }
