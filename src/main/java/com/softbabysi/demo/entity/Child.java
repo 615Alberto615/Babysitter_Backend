@@ -27,12 +27,9 @@ public class Child implements Serializable {
     @Column(name = "CHILD_GENDER", nullable = false)
     private Integer childGender;
 
-    @Column(name = "CHILD_TUTOR", nullable = false)
-    private Integer childTutor;
+    @Column(name = "CHILD_STATUS", nullable = false)
+    private Boolean childStatus;
 
-    @OneToOne(cascade = CascadeType.ALL)
-    @JoinColumn(name = "CHILD_ID", referencedColumnName = "CHILD_ID")
-    private ChildCareForm childCareForm;
 
     // Getters and setters...
 
@@ -42,15 +39,14 @@ public class Child implements Serializable {
     public Child() {
     }
 
-    public Child(Integer childId, Tutor tutor, String childName, String childBirthdate, String childPhoneEmergency, Integer childGender, Integer childTutor, ChildCareForm childCareForm) {
+    public Child(Integer childId, Tutor tutor, String childName, String childBirthdate, String childPhoneEmergency, Integer childGender, Boolean childStatus) {
         this.childId = childId;
         this.tutor = tutor;
         this.childName = childName;
         this.childBirthdate = childBirthdate;
         this.childPhoneEmergency = childPhoneEmergency;
         this.childGender = childGender;
-        this.childTutor = childTutor;
-        this.childCareForm = childCareForm;
+        this.childStatus = childStatus;
     }
 
     public Integer getChildId() {
@@ -101,20 +97,12 @@ public class Child implements Serializable {
         this.childGender = childGender;
     }
 
-    public Integer getChildTutor() {
-        return childTutor;
+    public Boolean getChildStatus() {
+        return childStatus;
     }
 
-    public void setChildTutor(Integer childTutor) {
-        this.childTutor = childTutor;
-    }
-
-    public ChildCareForm getChildCareForm() {
-        return childCareForm;
-    }
-
-    public void setChildCareForm(ChildCareForm childCareForm) {
-        this.childCareForm = childCareForm;
+    public void setChildStatus(Boolean childStatus) {
+        this.childStatus = childStatus;
     }
 
     @Override
@@ -126,8 +114,7 @@ public class Child implements Serializable {
                 ", childBirthdate='" + childBirthdate + '\'' +
                 ", childPhoneEmergency='" + childPhoneEmergency + '\'' +
                 ", childGender=" + childGender +
-                ", childTutor=" + childTutor +
-                ", childCareForm=" + childCareForm +
+                ", childStatus=" + childStatus +
                 '}';
     }
 }

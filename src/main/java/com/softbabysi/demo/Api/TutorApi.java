@@ -5,9 +5,11 @@ import com.softbabysi.demo.Bl.TutorBl;
 import com.softbabysi.demo.Dto.BabysitterDto;
 import com.softbabysi.demo.Dto.ResponseDto;
 import com.softbabysi.demo.Dto.TutorDto;
+import com.softbabysi.demo.entity.Tutor;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
@@ -18,20 +20,47 @@ import java.util.List;
 public class TutorApi {
     @Autowired
     private TutorBl tutorBl;
-    @GetMapping("")
-    public ResponseEntity<ResponseDto<List<TutorDto>>> getAllTutor(){
-        ResponseDto<List<TutorDto>> responseDto = new ResponseDto<>();
+
+    //Todos los tutores
+    @GetMapping("/")
+    public ResponseEntity<ResponseDto<List<Tutor>>> findAllTutorStatus(){
+
         try {
-            responseDto.setCode(0000);
-            responseDto.setData(tutorBl.getAllTutor());
-            responseDto.setMessage("Tutor retrieved successfully");
-            return ResponseEntity.ok(responseDto);
+            return ResponseEntity.ok(new ResponseDto<>(200, tutorBl.findAllTutorStatus(), "All tutor"));
         }catch (Exception e) {
-            responseDto.setCode(500);
-            responseDto.setMessage("error");
-            return ResponseEntity.ok(responseDto);
+            System.out.println(e);
+            return ResponseEntity.ok(new ResponseDto<>(500, null, "Error"));
         }
 
     }
+
+    // Por ID de tutor
+
+    @GetMapping("/{id}")
+    public ResponseEntity<ResponseDto<Tutor>> findTutorById(@PathVariable Integer id){
+
+        try {
+            return ResponseEntity.ok(new ResponseDto<>(200, tutorBl.findTutorById(id), "Tutor"));
+        }catch (Exception e) {
+            System.out.println(e);
+            return ResponseEntity.ok(new ResponseDto<>(500, null, "Error"));
+        }
+
+    }
+
+    // Tutor por Id de usuario
+
+    @GetMapping("/user/{id}")
+    public ResponseEntity<ResponseDto<Tutor>> findTutorByUserId(@PathVariable Integer id){
+
+        try {
+            return ResponseEntity.ok(new ResponseDto<>(200, tutorBl.findTutorByUserId(id), "Tutor"));
+        }catch (Exception e) {
+            System.out.println(e);
+            return ResponseEntity.ok(new ResponseDto<>(500, null, "Error"));
+        }
+
+    }
+
 
 }

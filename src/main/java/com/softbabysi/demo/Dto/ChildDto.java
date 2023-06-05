@@ -7,20 +7,20 @@ public class ChildDto {
     private String childBirthdate;
     private String childPhoneEmergency;
     private Integer childGender;
-    private Integer childTutor;
+    private Boolean childStatus;
 
 
     public ChildDto() {
     }
 
-    public ChildDto(Integer childId, Integer tutorId, String childName, String childBirthdate, String childPhoneEmergency, Integer childGender, Integer childTutor) {
+    public ChildDto(Integer childId, Integer tutorId, String childName, String childBirthdate, String childPhoneEmergency, Integer childGender, Boolean childStatus) {
         this.childId = childId;
         this.tutorId = tutorId;
         this.childName = childName;
         this.childBirthdate = childBirthdate;
         this.childPhoneEmergency = childPhoneEmergency;
         this.childGender = childGender;
-        this.childTutor = childTutor;
+        this.childStatus = childStatus;
     }
 
     public Integer getChildId() {
@@ -71,12 +71,12 @@ public class ChildDto {
         this.childGender = childGender;
     }
 
-    public Integer getChildTutor() {
-        return childTutor;
+    public Boolean getChildStatus() {
+        return childStatus;
     }
 
-    public void setChildTutor(Integer childTutor) {
-        this.childTutor = childTutor;
+    public void setChildStatus(Boolean childStatus) {
+        this.childStatus = childStatus;
     }
 
     @Override
@@ -88,7 +88,7 @@ public class ChildDto {
                 ", childBirthdate='" + childBirthdate + '\'' +
                 ", childPhoneEmergency='" + childPhoneEmergency + '\'' +
                 ", childGender=" + childGender +
-                ", childTutor=" + childTutor +
+                ", childStatus=" + childStatus +
                 '}';
     }
 }
