@@ -49,8 +49,10 @@ public class Booking implements Serializable {
     @Column(name = "BOOKING_PAID", nullable = false)
     private Boolean bookingPaid;
 
-    @OneToMany(mappedBy = "booking", cascade = CascadeType.ALL)
-    private List<Notification> notifications;
+    @Column(name = "BOOKING_AMOUNT", nullable = false)
+    private Double bookingAmount;
+
+
 
     // Getters and setters...
 
@@ -58,7 +60,7 @@ public class Booking implements Serializable {
     public Booking() {
     }
 
-    public Booking(Integer bookingId, Babysitter babysitter, Tutor tutor, String bookingChild, Integer bookingEstimatedTime, Date bookingTimeStart, Date bookingTimeEnd, Date bookingDate, Boolean bookingStatus, Integer bookingCompleted, Boolean bookingPaid) {
+    public Booking(Integer bookingId, Babysitter babysitter, Tutor tutor, String bookingChild, Integer bookingEstimatedTime, Date bookingTimeStart, Date bookingTimeEnd, Date bookingDate, Boolean bookingStatus, Integer bookingCompleted, Boolean bookingPaid, Double bookingAmount) {
         this.bookingId = bookingId;
         this.babysitter = babysitter;
         this.tutor = tutor;
@@ -70,6 +72,7 @@ public class Booking implements Serializable {
         this.bookingStatus = bookingStatus;
         this.bookingCompleted = bookingCompleted;
         this.bookingPaid = bookingPaid;
+        this.bookingAmount = bookingAmount;
     }
 
     public Integer getBookingId() {
@@ -160,6 +163,14 @@ public class Booking implements Serializable {
         this.bookingPaid = bookingPaid;
     }
 
+    public Double getBookingAmount() {
+        return bookingAmount;
+    }
+
+    public void setBookingAmount(Double bookingAmount) {
+        this.bookingAmount = bookingAmount;
+    }
+
     @Override
     public String toString() {
         return "Booking{" +
@@ -174,7 +185,7 @@ public class Booking implements Serializable {
                 ", bookingStatus=" + bookingStatus +
                 ", bookingCompleted=" + bookingCompleted +
                 ", bookingPaid=" + bookingPaid +
-                ", notifications=" + notifications +
+                ", bookingAmount=" + bookingAmount +
                 '}';
     }
 }

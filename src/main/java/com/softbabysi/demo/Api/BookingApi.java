@@ -5,11 +5,10 @@ import com.softbabysi.demo.Bl.TutorBl;
 import com.softbabysi.demo.Dto.BookingDto;
 import com.softbabysi.demo.Dto.ResponseDto;
 import com.softbabysi.demo.Dto.TutorDto;
+import com.softbabysi.demo.entity.Booking;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 @RestController
@@ -17,19 +16,43 @@ import java.util.List;
 public class BookingApi {
     @Autowired
     private BookingBl bookingBl;
-    @GetMapping("")
-    public ResponseEntity<ResponseDto<List<BookingDto>>> getAllBooking(){
-        ResponseDto<List<BookingDto>> responseDto = new ResponseDto<>();
-        try {
-            responseDto.setCode(0000);
-            responseDto.setData(bookingBl.getAllBooking());
-            responseDto.setMessage("Booking retrieved successfully");
-            return ResponseEntity.ok(responseDto);
-        }catch (Exception e) {
-            responseDto.setCode(500);
-            responseDto.setMessage("error");
-            return ResponseEntity.ok(responseDto);
-        }
 
+    @PostMapping(path = "/")
+    public ResponseEntity<ResponseDto<Booking>> createBooking(@RequestBody BookingDto bookingDto){
+        bookingBl.createBooking(bookingDto);
+        try {
+            return ResponseEntity.ok(new ResponseDto<>(200, null, "Booking created"));
+        }catch (Exception e){
+            e.printStackTrace();
+            return ResponseEntity.ok(new ResponseDto<>(500, null, "Error"));
+        }
+    }
+
+    // Por id
+    @GetMapping(path = "/{id}")
+    public ResponseEntity<ResponseDto<Booking>> findBookingById(@PathVariable Integer id){
+        return ResponseEntity.ok(new ResponseDto<>(200, bookingBl.findBooking(id), "Booking"));
+    }
+
+    // Por id de babysitter
+    @GetMapping(path = "/babysitter/{id}")
+    public ResponseEntity<ResponseDto<List<Booking>>> findBookingByBabysitterId(@PathVariable Integer id){
+        try {
+            return ResponseEntity.ok(new ResponseDto<>(200, bookingBl.findBookingByBabysitter(id), "Babysitter"));
+        }catch (Exception e){
+            e.printStackTrace();
+            return ResponseEntity.ok(new ResponseDto<>(500, null, "Error"));
+        }
+    }
+
+    // Por id de tutor
+    @GetMapping(path = "/tutor/{id}")
+    public ResponseEntity<ResponseDto<List<Booking>>> findBookingByTutorId(@PathVariable Integer id){
+        try {
+            return ResponseEntity.ok(new ResponseDto<>(200, bookingBl.findBookingByTutor(id), "Tutor"));
+        }catch (Exception e){
+            e.printStackTrace();
+            return ResponseEntity.ok(new ResponseDto<>(500, null, "Error"));
+        }
     }
 }

@@ -14,11 +14,12 @@ public class BookingDto {
     private Boolean bookingStatus;
     private Integer bookingCompleted;
     private Boolean bookingPaid;
+    private Double bookingAmount;
 
     public BookingDto() {
     }
 
-    public BookingDto(Integer bookingId, Integer babysitterId, Integer tutorId, String bookingChild, Integer bookingEstimatedTime, Date bookingTimeStart, Date bookingTimeEnd, Date bookingDate, Boolean bookingStatus, Integer bookingCompleted, Boolean bookingPaid) {
+    public BookingDto(Integer bookingId, Integer babysitterId, Integer tutorId, String bookingChild, Integer bookingEstimatedTime, Date bookingTimeStart, Date bookingTimeEnd, Date bookingDate, Boolean bookingStatus, Integer bookingCompleted, Boolean bookingPaid, Double bookingAmount) {
         this.bookingId = bookingId;
         this.babysitterId = babysitterId;
         this.tutorId = tutorId;
@@ -30,6 +31,7 @@ public class BookingDto {
         this.bookingStatus = bookingStatus;
         this.bookingCompleted = bookingCompleted;
         this.bookingPaid = bookingPaid;
+        this.bookingAmount = bookingAmount;
     }
 
     public Integer getBookingId() {
@@ -120,6 +122,14 @@ public class BookingDto {
         this.bookingPaid = bookingPaid;
     }
 
+    public Double getBookingAmount() {
+        return bookingAmount;
+    }
+
+    public void setBookingAmount(Double bookingAmount) {
+        this.bookingAmount = bookingAmount;
+    }
+
     @Override
     public String toString() {
         return "BookingDto{" +
@@ -134,6 +144,7 @@ public class BookingDto {
                 ", bookingStatus=" + bookingStatus +
                 ", bookingCompleted=" + bookingCompleted +
                 ", bookingPaid=" + bookingPaid +
+                ", bookingAmount=" + bookingAmount +
                 '}';
     }
 }

@@ -14,6 +14,8 @@ public class ResponseDto<T> {
         this.message = message;
     }
 
+
+
     public Integer getCode() {
         return code;
     }
