@@ -32,13 +32,13 @@ public class UserBl {
     public void createBabysitter(UserBabysitterDto userBabysitterDto){
         // Crear el primer registro en User
         User user = new User();
-        user.setSeLocationId(userBabysitterDto.getLocation());
-        user.setUserName(userBabysitterDto.getName());
-        user.setUserLastname(userBabysitterDto.getLastname());
-        user.setUserEmail(userBabysitterDto.getEmail());
-        user.setUserSecret(userBabysitterDto.getSecret());
-        user.setUserPhone(userBabysitterDto.getPhone());
-        user.setUserAddres(userBabysitterDto.getAddres());
+        user.setSeLocationId(userBabysitterDto.getSeLocationId());
+        user.setUserName(userBabysitterDto.getUserName());
+        user.setUserLastname(userBabysitterDto.getUserLastname());
+        user.setUserEmail(userBabysitterDto.getUserEmail());
+        user.setUserSecret(userBabysitterDto.getUserSecret());
+        user.setUserPhone(userBabysitterDto.getUserPhone());
+        user.setUserAddres(userBabysitterDto.getUserAddres());
         user.setUserStatus(true);
         userRepository.save(user);
         userRepository.flush(); // flush after saving the user

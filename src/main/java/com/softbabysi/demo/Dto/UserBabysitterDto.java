@@ -2,13 +2,13 @@ package com.softbabysi.demo.Dto;
 
 public class UserBabysitterDto {
 
-    private Integer location;
-    private String name;
-    private String lastname;
-    private String email;
-    private String addres;
-    private String phone;
-    private String secret;
+    private Integer seLocationId;
+    private String userName;
+    private String userLastname;
+    private String userEmail;
+    private String userAddres;
+    private String userPhone;
+    private String userSecret;
     private String CI;
     private String extension;
     private String phoneContact;
@@ -17,74 +17,74 @@ public class UserBabysitterDto {
     public UserBabysitterDto() {
     }
 
-    public UserBabysitterDto(Integer location, String name, String lastname, String email, String addres, String phone, String secret, String CI, String extension, String phoneContact, String description) {
-        this.location = location;
-        this.name = name;
-        this.lastname = lastname;
-        this.email = email;
-        this.addres = addres;
-        this.phone = phone;
-        this.secret = secret;
+    public UserBabysitterDto(Integer seLocationId, String userName, String userLastname, String userEmail, String userAddres, String userPhone, String userSecret, String CI, String extension, String phoneContact, String description) {
+        this.seLocationId = seLocationId;
+        this.userName = userName;
+        this.userLastname = userLastname;
+        this.userEmail = userEmail;
+        this.userAddres = userAddres;
+        this.userPhone = userPhone;
+        this.userSecret = userSecret;
         this.CI = CI;
         this.extension = extension;
         this.phoneContact = phoneContact;
         this.description = description;
     }
 
-    public Integer getLocation() {
-        return location;
+    public Integer getSeLocationId() {
+        return seLocationId;
     }
 
-    public void setLocation(Integer location) {
-        this.location = location;
+    public void setSeLocationId(Integer seLocationId) {
+        this.seLocationId = seLocationId;
     }
 
-    public String getName() {
-        return name;
+    public String getUserName() {
+        return userName;
     }
 
-    public void setName(String name) {
-        this.name = name;
+    public void setUserName(String userName) {
+        this.userName = userName;
     }
 
-    public String getLastname() {
-        return lastname;
+    public String getUserLastname() {
+        return userLastname;
     }
 
-    public void setLastname(String lastname) {
-        this.lastname = lastname;
+    public void setUserLastname(String userLastname) {
+        this.userLastname = userLastname;
     }
 
-    public String getEmail() {
-        return email;
+    public String getUserEmail() {
+        return userEmail;
     }
 
-    public void setEmail(String email) {
-        this.email = email;
+    public void setUserEmail(String userEmail) {
+        this.userEmail = userEmail;
     }
 
-    public String getAddres() {
-        return addres;
+    public String getUserAddres() {
+        return userAddres;
     }
 
-    public void setAddres(String addres) {
-        this.addres = addres;
+    public void setUserAddres(String userAddres) {
+        this.userAddres = userAddres;
     }
 
-    public String getPhone() {
-        return phone;
+    public String getUserPhone() {
+        return userPhone;
     }
 
-    public void setPhone(String phone) {
-        this.phone = phone;
+    public void setUserPhone(String userPhone) {
+        this.userPhone = userPhone;
     }
 
-    public String getSecret() {
-        return secret;
+    public String getUserSecret() {
+        return userSecret;
     }
 
-    public void setSecret(String secret) {
-        this.secret = secret;
+    public void setUserSecret(String userSecret) {
+        this.userSecret = userSecret;
     }
 
     public String getCI() {
@@ -122,13 +122,13 @@ public class UserBabysitterDto {
     @Override
     public String toString() {
         return "UserBabysitterDto{" +
-                "location=" + location +
-                ", name='" + name + '\'' +
-                ", lastname='" + lastname + '\'' +
-                ", email='" + email + '\'' +
-                ", addres='" + addres + '\'' +
-                ", phone='" + phone + '\'' +
-                ", secret='" + secret + '\'' +
+                "seLocationId=" + seLocationId +
+                ", userName='" + userName + '\'' +
+                ", userLastname='" + userLastname + '\'' +
+                ", userEmail='" + userEmail + '\'' +
+                ", userAddres='" + userAddres + '\'' +
+                ", userPhone='" + userPhone + '\'' +
+                ", userSecret='" + userSecret + '\'' +
                 ", CI='" + CI + '\'' +
                 ", extension='" + extension + '\'' +
                 ", phoneContact='" + phoneContact + '\'' +
