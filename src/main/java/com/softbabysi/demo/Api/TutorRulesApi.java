@@ -2,13 +2,11 @@ package com.softbabysi.demo.Api;
 
 import com.softbabysi.demo.Bl.TutorRulesBl;
 import com.softbabysi.demo.Dto.ResponseDto;
+import com.softbabysi.demo.Dto.TutorRulesDto;
 import com.softbabysi.demo.entity.TutorRules;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 
@@ -27,5 +25,17 @@ public class TutorRulesApi {
             System.out.println(e);
             return ResponseEntity.ok(new ResponseDto<>(500, null, "Error"));
         }
+    }
+
+    // Agregar reglas a un tutor
+    @PostMapping(path = "/")
+    public ResponseEntity<ResponseDto<TutorRules>> createTutorRules(@RequestBody TutorRulesDto tutorRulesDto){
+        tutorRulesBl.createTutorRules(tutorRulesDto);
+        try {
+            return ResponseEntity.ok(new ResponseDto<>(200, null, "Tutor rules created"));
+        }catch (Exception e) {
+            return ResponseEntity.ok(new ResponseDto<>(500, null, "Error"));
+        }
+
     }
 }
