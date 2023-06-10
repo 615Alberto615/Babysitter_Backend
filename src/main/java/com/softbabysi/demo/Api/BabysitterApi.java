@@ -58,9 +58,18 @@
 
         // Por id de usuario
         @GetMapping("/user/{id}")
-        public ResponseEntity<ResponseDto<Babysitter>> findBabysitterByUserId(@PathVariable Integer id){
+        public ResponseEntity<ResponseDto<BabysitterDto>> findBabysitterByUserId(@PathVariable Integer id){
+            Babysitter babysitter = babysitterBl.findBabysitterByUserId(id);
+            BabysitterDto babysitterDto = new BabysitterDto();
+            babysitterDto.setBabysitterId(babysitter.getBabysitterId());
+            babysitterDto.setUserId(babysitter.getUser().getUserId());
+            babysitterDto.setBabysitterCi(babysitter.getBabysitterCI());
+            babysitterDto.setBabysitterExtension(babysitter.getBabysitterExtension());
+            babysitterDto.setBabysitterDescription(babysitter.getBabysitterDescription());
+            babysitterDto.setBabysitterStatus(babysitter.getBabysitterStatus());
+            System.out.println(babysitterDto);
             try {
-                return ResponseEntity.ok(new ResponseDto<>(200, babysitterBl.findBabysitterByUserId(id), "Babysitter retrieved successfully"));
+                return ResponseEntity.ok(new ResponseDto<>(200, babysitterDto, "Babysitter retrieved successfully"));
             }catch (Exception e) {
                 return ResponseEntity.ok(new ResponseDto<>(500, null, "error"));
             }
