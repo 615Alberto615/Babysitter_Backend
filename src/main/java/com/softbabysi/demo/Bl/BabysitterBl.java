@@ -47,6 +47,12 @@ public class BabysitterBl {
         return babysitters;
     }
 
+    //Niñeras por id de usuario
+    public Babysitter findBabysitterByUserId(Integer id){
+        Babysitter babysitter = babySitterRepository.findBabysitterByUserId(id);
+        return babysitter;
+    }
+
 
 
 

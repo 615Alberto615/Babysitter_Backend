@@ -13,4 +13,8 @@ public interface BabySitterRepository extends JpaRepository<Babysitter, Long> {
     @Query("SELECT i FROM Babysitter i WHERE i.babysitterStatus = true")
     public List<Babysitter> findAllBabysitterStatus();
 
+    // por id de usuario
+    @Query("SELECT i FROM Babysitter i WHERE i.user = ?1")
+    public Babysitter findBabysitterByUserId(Integer id);
+
 }

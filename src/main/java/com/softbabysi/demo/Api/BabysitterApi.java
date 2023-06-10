@@ -56,6 +56,16 @@
 
         }
 
+        // Por id de usuario
+        @GetMapping("/user/{id}")
+        public ResponseEntity<ResponseDto<Babysitter>> findBabysitterByUserId(@PathVariable Integer id){
+            try {
+                return ResponseEntity.ok(new ResponseDto<>(200, babysitterBl.findBabysitterByUserId(id), "Babysitter retrieved successfully"));
+            }catch (Exception e) {
+                return ResponseEntity.ok(new ResponseDto<>(500, null, "error"));
+            }
+        }
+
 
 
         /*@GetMapping("/{id}")

@@ -35,7 +35,7 @@ public class ChildBl {
     public void createChild(ChildFormDto childFormDto){
         Child child = new Child();
         Tutor tutor = new Tutor();
-        tutor.setTutorId(33);
+        tutor.setTutorId(childFormDto.getTutor());
         child.setTutor(tutor);
         child.setChildName(childFormDto.getName());
         child.setChildBirthdate(childFormDto.getBirthdate());
