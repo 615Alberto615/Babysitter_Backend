@@ -1,6 +1,7 @@
 package com.softbabysi.demo.Bl;
 
 import com.softbabysi.demo.Dto.ChildDto;
+import com.softbabysi.demo.Dto.ChildEditDto;
 import com.softbabysi.demo.Dto.ChildFormDto;
 import com.softbabysi.demo.dao.ChildDao;
 import com.softbabysi.demo.dao.ChildMedicalFormRepository;
@@ -70,6 +71,15 @@ public class ChildBl {
         return childDtoList;
     }
 
-
+    // Editar el niño
+    public void updateChild(ChildEditDto childEditDto, Integer id){
+        Child child = new Child();
+        child.setChildId(id);
+        child.setChildName(childEditDto.getChildName());
+        child.setChildBirthdate(childEditDto.getChildBirthdate());
+        child.setChildPhoneEmergency(childEditDto.getChildPhoneEmergency());
+        child.setChildGender(childEditDto.getChildGender());
+        childRepository.save(child);
+    }
 
 }

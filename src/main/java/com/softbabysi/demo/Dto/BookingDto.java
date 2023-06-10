@@ -6,7 +6,7 @@ public class BookingDto {
     private Integer bookingId;
     private Integer babysitterId;
     private Integer tutorId;
-    private String bookingChild;
+    private String bookingChild; // Backed dato
     private Integer bookingEstimatedTime;
     private Date bookingTimeStart;
     private Date bookingTimeEnd;

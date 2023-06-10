@@ -2,6 +2,7 @@ package com.softbabysi.demo.Api;
 
 import com.softbabysi.demo.Bl.ChildBl;
 import com.softbabysi.demo.Dto.ChildDto;
+import com.softbabysi.demo.Dto.ChildEditDto;
 import com.softbabysi.demo.Dto.ChildFormDto;
 import com.softbabysi.demo.Dto.ResponseDto;
 import com.softbabysi.demo.entity.Child;
@@ -35,5 +36,16 @@ public class ChildApi {
 
         }
 
+    }
+    //Se actualiza un niño
+    @PutMapping(path = "/{id}")
+    public ResponseEntity<ResponseDto<ChildEditDto>> updateChild(@RequestBody ChildEditDto childEditDto, @PathVariable Integer id ){
+        childBl.updateChild(childEditDto, id);
+        try {
+            return ResponseEntity.ok(new ResponseDto<>(200, null, "Child updated"));
+        }catch (Exception e) {
+            return ResponseEntity.ok(new ResponseDto<>(500, null, "Error"));
+
+        }
     }
 }
