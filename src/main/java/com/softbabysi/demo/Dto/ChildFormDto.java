@@ -2,26 +2,26 @@ package com.softbabysi.demo.Dto;
 
 public class ChildFormDto {
     private Integer tutor;
-    private String Name;
-    private String Birthdate;
-    private String PhoneEmergency;
-    private Integer Gender;
-    private String AllergieType;
-    private String Medication;
-    private String MedicationUbication;
+    private String childName;
+    private String childBirthdate;
+    private String childPhoneEmergency;
+    private Integer childGender;
+    private String medicalAllergieType;
+    private String medicalMedication;
+    private String medicalMedicationUbication;
 
     public ChildFormDto() {
     }
 
-    public ChildFormDto(Integer tutor, String name, String birthdate, String phoneEmergency, Integer gender, String allergieType, String medication, String medicationUbication) {
+    public ChildFormDto(Integer tutor, String childName, String childBirthdate, String childPhoneEmergency, Integer childGender, String medicalAllergieType, String medicalMedication, String medicalMedicationUbication) {
         this.tutor = tutor;
-        Name = name;
-        Birthdate = birthdate;
-        PhoneEmergency = phoneEmergency;
-        Gender = gender;
-        AllergieType = allergieType;
-        Medication = medication;
-        MedicationUbication = medicationUbication;
+        this.childName = childName;
+        this.childBirthdate = childBirthdate;
+        this.childPhoneEmergency = childPhoneEmergency;
+        this.childGender = childGender;
+        this.medicalAllergieType = medicalAllergieType;
+        this.medicalMedication = medicalMedication;
+        this.medicalMedicationUbication = medicalMedicationUbication;
     }
 
     public Integer getTutor() {
@@ -32,73 +32,73 @@ public class ChildFormDto {
         this.tutor = tutor;
     }
 
-    public String getName() {
-        return Name;
+    public String getChildName() {
+        return childName;
     }
 
-    public void setName(String name) {
-        Name = name;
+    public void setChildName(String childName) {
+        this.childName = childName;
     }
 
-    public String getBirthdate() {
-        return Birthdate;
+    public String getChildBirthdate() {
+        return childBirthdate;
     }
 
-    public void setBirthdate(String birthdate) {
-        Birthdate = birthdate;
+    public void setChildBirthdate(String childBirthdate) {
+        this.childBirthdate = childBirthdate;
     }
 
-    public String getPhoneEmergency() {
-        return PhoneEmergency;
+    public String getChildPhoneEmergency() {
+        return childPhoneEmergency;
     }
 
-    public void setPhoneEmergency(String phoneEmergency) {
-        PhoneEmergency = phoneEmergency;
+    public void setChildPhoneEmergency(String childPhoneEmergency) {
+        this.childPhoneEmergency = childPhoneEmergency;
     }
 
-    public Integer getGender() {
-        return Gender;
+    public Integer getChildGender() {
+        return childGender;
     }
 
-    public void setGender(Integer gender) {
-        Gender = gender;
+    public void setChildGender(Integer childGender) {
+        this.childGender = childGender;
     }
 
-    public String getAllergieType() {
-        return AllergieType;
+    public String getMedicalAllergieType() {
+        return medicalAllergieType;
     }
 
-    public void setAllergieType(String allergieType) {
-        AllergieType = allergieType;
+    public void setMedicalAllergieType(String medicalAllergieType) {
+        this.medicalAllergieType = medicalAllergieType;
     }
 
-    public String getMedication() {
-        return Medication;
+    public String getMedicalMedication() {
+        return medicalMedication;
     }
 
-    public void setMedication(String medication) {
-        Medication = medication;
+    public void setMedicalMedication(String medicalMedication) {
+        this.medicalMedication = medicalMedication;
     }
 
-    public String getMedicationUbication() {
-        return MedicationUbication;
+    public String getMedicalMedicationUbication() {
+        return medicalMedicationUbication;
     }
 
-    public void setMedicationUbication(String medicationUbication) {
-        MedicationUbication = medicationUbication;
+    public void setMedicalMedicationUbication(String medicalMedicationUbication) {
+        this.medicalMedicationUbication = medicalMedicationUbication;
     }
 
     @Override
     public String toString() {
         return "ChildFormDto{" +
                 "tutor=" + tutor +
-                ", Name='" + Name + '\'' +
-                ", Birthdate='" + Birthdate + '\'' +
-                ", PhoneEmergency='" + PhoneEmergency + '\'' +
-                ", Gender=" + Gender +
-                ", AllergieType='" + AllergieType + '\'' +
-                ", Medication='" + Medication + '\'' +
-                ", MedicationUbication='" + MedicationUbication + '\'' +
+                ", childName='" + childName + '\'' +
+                ", childBirthdate='" + childBirthdate + '\'' +
+                ", childPhoneEmergency='" + childPhoneEmergency + '\'' +
+                ", childGender=" + childGender +
+                ", medicalAllergieType='" + medicalAllergieType + '\'' +
+                ", medicalMedication='" + medicalMedication + '\'' +
+                ", medicalMedicationUbication='" + medicalMedicationUbication + '\'' +
                 '}';
     }
 }

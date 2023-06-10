@@ -33,23 +33,31 @@ public class ChildBl {
 
     @Transactional
     public void createChild(ChildFormDto childFormDto){
+        /*ChildDto childDto = new ChildDto();
+        childDto.setTutorId(childFormDto.getTutor());
+        childDto.setChildName(childFormDto.getName());
+        childDto.setChildBirthdate(childFormDto.getBirthdate());
+        childDto.setChildPhoneEmergency(childFormDto.getPhoneEmergency());
+        childDto.setChildGender(childFormDto.getGender());
+        childDto.setChildStatus(true);
+        Child save = childRepository.save(childDto);*/
         Child child = new Child();
         Tutor tutor = new Tutor();
         tutor.setTutorId(childFormDto.getTutor());
         child.setTutor(tutor);
-        child.setChildName(childFormDto.getName());
-        child.setChildBirthdate(childFormDto.getBirthdate());
-        child.setChildPhoneEmergency(childFormDto.getPhoneEmergency());
-        child.setChildGender(childFormDto.getGender());
+        child.setChildName(childFormDto.getChildName());
+        child.setChildBirthdate(childFormDto.getChildBirthdate());
+        child.setChildPhoneEmergency(childFormDto.getChildPhoneEmergency());
+        child.setChildGender(childFormDto.getChildGender());
         child.setChildStatus(true);
-        Integer x=child.getChildId();
+        Integer childId =child.getChildId();
         childRepository.save(child);
 
         ChildMedicalForm childMedicalForm = new ChildMedicalForm();
         childMedicalForm.setChild(child);
-        childMedicalForm.setMedicalAllergieType(childFormDto.getAllergieType());
-        childMedicalForm.setMedicalMedication(childFormDto.getMedication());
-        childMedicalForm.setMedicalMedicationUbication(childFormDto.getMedicationUbication());
+        childMedicalForm.setMedicalAllergieType(childFormDto.getMedicalAllergieType());
+        childMedicalForm.setMedicalMedication(childFormDto.getMedicalMedication());
+        childMedicalForm.setMedicalMedicationUbication(childFormDto.getMedicalMedicationUbication());
         childMedicalFormRepository.save(childMedicalForm);
 
     }

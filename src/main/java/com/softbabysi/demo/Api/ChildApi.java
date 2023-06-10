@@ -29,6 +29,7 @@ public class ChildApi {
     //Se agrega un niño
     @PostMapping(path = "/")
     public ResponseEntity<ResponseDto<Child>> createChild(@RequestBody ChildFormDto childFormDto){
+        System.out.println(childFormDto);
         childBl.createChild(childFormDto);
         try {
             return ResponseEntity.ok(new ResponseDto<>(200, null, "Child created"));
