@@ -24,12 +24,14 @@ public class TutorBl {
     // tutor por id
     public Tutor findTutorById(Integer id){
         Tutor tutor = tutorRepository.findByTutorId(id);
+
         return tutor;
     }
 
     //tutor por id usuario
     public Tutor findTutorByUserId(Integer id){
         Tutor tutor = tutorRepository.findTutorByUserId(id);
+
         return tutor;
     }
 
