@@ -81,12 +81,20 @@ public class ChildBl {
 
     // Editar el niño
     public void updateChild(ChildEditDto childEditDto, Integer id){
-        Child child = new Child();
-        child.setChildId(id);
+
+        Child child = childRepository.findByChildId(id);
         child.setChildName(childEditDto.getChildName());
         child.setChildBirthdate(childEditDto.getChildBirthdate());
         child.setChildPhoneEmergency(childEditDto.getChildPhoneEmergency());
         child.setChildGender(childEditDto.getChildGender());
+        System.out.println(child);
+        childRepository.save(child);
+    }
+    //eliminar logicamente
+    public void deleteChild(Integer id){
+
+        Child child = childRepository.findByChildId(id);
+        child.setChildStatus(false);
         childRepository.save(child);
     }
 

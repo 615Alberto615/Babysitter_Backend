@@ -42,9 +42,22 @@ public class ChildApi {
     //Se actualiza un niño
     @PutMapping(path = "/{id}")
     public ResponseEntity<ResponseDto<ChildEditDto>> updateChild(@RequestBody ChildEditDto childEditDto, @PathVariable Integer id ){
+        System.out.println(childEditDto);
         childBl.updateChild(childEditDto, id);
         try {
             return ResponseEntity.ok(new ResponseDto<>(200, null, "Child updated"));
+        }catch (Exception e) {
+            return ResponseEntity.ok(new ResponseDto<>(500, null, "Error"));
+
+        }
+    }
+
+    //Eliminar logicamente
+    @DeleteMapping(path = "/{id}")
+    public ResponseEntity<ResponseDto<Child>> deleteChild(@PathVariable Integer id){
+        childBl.deleteChild(id);
+        try {
+            return ResponseEntity.ok(new ResponseDto<>(200, null, "Child deleted"));
         }catch (Exception e) {
             return ResponseEntity.ok(new ResponseDto<>(500, null, "Error"));
 
