@@ -1,8 +1,8 @@
 spring:
   datasource:
-    url: jdbc:postgresql://localhost:5432/db_bs
+    url: jdbc:postgresql://localhost:5432/ProyectoSoftware
     username: postgres
-    password: AllSafe6
+    password: password
     driver-class-name: org.postgresql.Driver
   jpa:
     database-platform: org.hibernate.dialect.PostgreSQLDialect

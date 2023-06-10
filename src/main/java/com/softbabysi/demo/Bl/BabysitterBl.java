@@ -1,8 +1,10 @@
 package com.softbabysi.demo.Bl;
 
 import com.softbabysi.demo.Dto.BabysitterDto;
+import com.softbabysi.demo.Dto.BabysitterListDto;
 import com.softbabysi.demo.dao.BabySitterRepository;
 import com.softbabysi.demo.dao.BabysitterDao;
+import com.softbabysi.demo.dao.UserRepository;
 import com.softbabysi.demo.entity.Babysitter;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -13,6 +15,12 @@ import java.util.List;
 public class BabysitterBl {
     @Autowired
     private BabysitterDao babySitterDao;
+
+    @Autowired
+    private BabySitterRepository babySitterRepository;
+
+    @Autowired
+    private UserRepository userRepository;
     public List<BabysitterDto> getAllBabysitter(){
         List<Babysitter> babysitters=babySitterDao.getAllBabysitter();
 
@@ -26,7 +34,18 @@ public class BabysitterBl {
     }
 
 
-    // Obtener niñera por id
+    // Todas las niñeras con estatus true
+    public List<Babysitter> findAllBabysitterStatus(){
+        List<Babysitter> babysitters =babySitterRepository.findAllBabysitterStatus();
+        return babysitters;
+    }
+
+    //Todas las niñeras para la Lista de niñeras
+    public List<BabysitterListDto> getBabysittersData(){
+        List<BabysitterListDto> babysitters = userRepository.getBabysiiterData();
+        //System.out.println(babysitters);
+        return babysitters;
+    }
 
 
 

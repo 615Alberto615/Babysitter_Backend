@@ -9,6 +9,6 @@ import java.util.List;
 
 public interface ChildRepository extends JpaRepository<Child, Long> {
 
-    @Query("SELECT i FROM Child i WHERE i.childStatus = true AND i.tutor = ?1")
+    @Query("SELECT i FROM Child i WHERE i.childStatus = true AND i.tutor.tutorId = ?1")
     public List<Child> findAllChildStatus(Integer id);
 }
