@@ -29,16 +29,11 @@ public class ChildApi {
     public ResponseEntity<ResponseDto<Child>> createChild(@RequestBody ChildFormDto childFormDto){
         childBl.createChild(childFormDto);
         try {
-            return ResponseEntity.ok(new ResponseDto<>(200, null, "Babysitter created"));
+            return ResponseEntity.ok(new ResponseDto<>(200, null, "Child created"));
         }catch (Exception e) {
             return ResponseEntity.ok(new ResponseDto<>(500, null, "Error"));
 
         }
 
     }
-
-
-
-
-
 }

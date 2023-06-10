@@ -9,7 +9,7 @@ import org.springframework.data.jpa.repository.Query;
 
 import java.util.List;
 
-public interface TutorRepository extends JpaRepository<Tutor, Long>{
+public interface TutorRepository extends JpaRepository<Tutor, Integer>{
 
     @Query("SELECT i FROM Tutor i WHERE i.tutorStatus = true")
     public List<Tutor> findAllTutorStatus();

@@ -34,12 +34,14 @@ public class ChildBl {
     public void createChild(ChildFormDto childFormDto){
         Child child = new Child();
         Tutor tutor = new Tutor();
-        tutor.setTutorId(childFormDto.getTutor());
+        tutor.setTutorId(33);
         child.setTutor(tutor);
         child.setChildName(childFormDto.getName());
         child.setChildBirthdate(childFormDto.getBirthdate());
         child.setChildPhoneEmergency(childFormDto.getPhoneEmergency());
         child.setChildGender(childFormDto.getGender());
+        child.setChildStatus(true);
+        Integer x=child.getChildId();
         childRepository.save(child);
 
         ChildMedicalForm childMedicalForm = new ChildMedicalForm();
