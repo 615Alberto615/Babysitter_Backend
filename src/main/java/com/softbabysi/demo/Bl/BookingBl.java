@@ -52,6 +52,27 @@ public class BookingBl {
         return booking;
     }
 
+    //Actualizar reserva
+    public void updateBooking(BookingDto bookingDto, Integer id){
+        Booking booking = bookingRepository.findByBookingId(id);
+        Tutor tutor = new Tutor();
+        Babysitter babysitter = new Babysitter();
+        booking.setBookingId(bookingDto.getBookingId());
+        tutor.setTutorId(bookingDto.getTutorId());
+        babysitter.setBabysitterId(bookingDto.getBabysitterId());
+        booking.setBabysitter(babysitter);
+        booking.setTutor(tutor);
+        booking.setBookingChild(bookingDto.getBookingChild());
+        booking.setBookingEstimatedTime(bookingDto.getBookingEstimatedTime());
+        booking.setBookingTimeStart(bookingDto.getBookingTimeStart());
+        booking.setBookingTimeEnd(bookingDto.getBookingTimeEnd());
+        booking.setBookingDate(bookingDto.getBookingDate());
+        booking.setBookingStatus(bookingDto.getBookingStatus());
+        booking.setBookingCompleted(bookingDto.getBookingCompleted());
+        booking.setBookingPaid(bookingDto.getBookingPaid());
+        booking.setBookingAmount(bookingDto.getBookingAmount());
+        bookingRepository.save(booking);
+    }
 
     /*public void findBookingByBabysitter(Integer id){
         List<Booking> booking = bookingRepository.findBookingByBabysitterId(id);

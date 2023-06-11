@@ -18,6 +18,7 @@ public class BookingApi {
     @Autowired
     private BookingBl bookingBl;
 
+    //crear nueva reserva
     @PostMapping(path = "/")
     public ResponseEntity<ResponseDto<Booking>> createBooking(@RequestBody BookingDto bookingDto){
         bookingBl.createBooking(bookingDto);
@@ -51,6 +52,18 @@ public class BookingApi {
     public ResponseEntity<ResponseDto<List<Booking>>> findBookingByTutorId(@PathVariable Integer id){
         try {
             return ResponseEntity.ok(new ResponseDto<>(200, bookingBl.findBookingByTutor(id), "Tutor"));
+        }catch (Exception e){
+            e.printStackTrace();
+            return ResponseEntity.ok(new ResponseDto<>(500, null, "Error"));
+        }
+    }
+
+    // Actualizar reserva
+    @PutMapping(path = "/{id}")
+    public ResponseEntity<ResponseDto<Booking>> updateBooking(@RequestBody BookingDto bookingDto, @PathVariable Integer id){
+        bookingBl.updateBooking(bookingDto, id);
+        try {
+            return ResponseEntity.ok(new ResponseDto<>(200, null, "Booking updated"));
         }catch (Exception e){
             e.printStackTrace();
             return ResponseEntity.ok(new ResponseDto<>(500, null, "Error"));
