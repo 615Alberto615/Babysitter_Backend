@@ -63,7 +63,7 @@ public class TutorApi {
     // Tutor por Id de usuario
 
     @GetMapping("/user/{id}")
-    public ResponseEntity<ResponseDto<TutorDto>> findTutorByUserId(@PathVariable Integer id, @RequestHeader("Authorization") String token){
+    public ResponseEntity<ResponseDto<TutorDto>> findTutorByUserId(@PathVariable Integer id){
         Tutor tutor = tutorBl.findTutorByUserId(id);
         TutorDto tutorDto = new TutorDto();
         tutorDto.setTutorId(tutor.getTutorId());
@@ -71,10 +71,6 @@ public class TutorApi {
         tutorDto.setTutorStatus(tutor.getTutorStatus());
         System.out.println(tutorDto);
         try {
-            if(!userBl.validateToken(token)){
-                return ResponseEntity.status(HttpStatus.UNAUTHORIZED).body(new ResponseDto<>(401, null, "Unauthorized"));
-            }
-            System.out.println("token autorizado");
             return ResponseEntity.ok(new ResponseDto<>(200, tutorDto, "Tutor"));
         }catch (Exception e) {
             System.out.println(e);

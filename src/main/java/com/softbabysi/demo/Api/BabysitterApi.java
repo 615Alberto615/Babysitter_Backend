@@ -75,7 +75,7 @@
 
         // Por id de usuario
         @GetMapping("/user/{id}")
-        public ResponseEntity<ResponseDto<BabysitterDto>> findBabysitterByUserId(@PathVariable Integer id, @RequestHeader("Authorization") String token){
+        public ResponseEntity<ResponseDto<BabysitterDto>> findBabysitterByUserId(@PathVariable Integer id){
             Babysitter babysitter = babysitterBl.findBabysitterByUserId(id);
             BabysitterDto babysitterDto = new BabysitterDto();
             babysitterDto.setBabysitterId(babysitter.getBabysitterId());
@@ -86,10 +86,6 @@
             babysitterDto.setBabysitterStatus(babysitter.getBabysitterStatus());
             System.out.println(babysitterDto);
             try {
-                if(!userBl.validateToken(token)){
-                    return ResponseEntity.status(HttpStatus.UNAUTHORIZED).body(new ResponseDto<>(401, null, "Unauthorized"));
-                }
-                System.out.println("token autorizado");
                 return ResponseEntity.ok(new ResponseDto<>(200, babysitterDto, "Babysitter retrieved successfully"));
             }catch (Exception e) {
                 return ResponseEntity.ok(new ResponseDto<>(500, null, "error"));
