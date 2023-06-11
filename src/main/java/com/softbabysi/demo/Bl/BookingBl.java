@@ -2,6 +2,8 @@ package com.softbabysi.demo.Bl;
 
 import com.softbabysi.demo.Dto.BabysitterDto;
 import com.softbabysi.demo.Dto.BookingDto;
+import com.softbabysi.demo.Dto.BookingListDto;
+import com.softbabysi.demo.Dto.BookingStatusServiceDto;
 import com.softbabysi.demo.dao.BookingDao;
 import com.softbabysi.demo.dao.BookingRepository;
 import com.softbabysi.demo.entity.Babysitter;
@@ -10,6 +12,7 @@ import com.softbabysi.demo.entity.Tutor;
 import jakarta.transaction.Transactional;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+import org.springframework.web.bind.annotation.GetMapping;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -47,9 +50,26 @@ public class BookingBl {
     }
 
     //Obtener booking por babysitter
-    public List<Booking> findBookingByBabysitter(Integer id){
+    public List<BookingDto> findBookingByBabysitter(Integer id){
         List<Booking> booking = bookingRepository.findBookingByBabysitterId(id);
-        return booking;
+        List<BookingDto> bookingDto = new ArrayList<>();
+        for (Booking booking1: booking) {
+            BookingDto bookingDto1 = new BookingDto();
+            bookingDto1.setBookingId(booking1.getBookingId());
+            bookingDto1.setTutorId(booking1.getTutor().getTutorId());
+            bookingDto1.setBabysitterId(booking1.getBabysitter().getBabysitterId());
+            bookingDto1.setBookingChild(booking1.getBookingChild());
+            bookingDto1.setBookingEstimatedTime(booking1.getBookingEstimatedTime());
+            bookingDto1.setBookingTimeStart(booking1.getBookingTimeStart());
+            bookingDto1.setBookingTimeEnd(booking1.getBookingTimeEnd());
+            bookingDto1.setBookingDate(booking1.getBookingDate());
+            bookingDto1.setBookingStatus(booking1.getBookingStatus());
+            bookingDto1.setBookingCompleted(booking1.getBookingCompleted());
+            bookingDto1.setBookingPaid(booking1.getBookingPaid());
+            bookingDto1.setBookingAmount(booking1.getBookingAmount());
+            bookingDto.add(bookingDto1);
+        }
+        return bookingDto;
     }
 
     //Actualizar reserva
@@ -80,12 +100,52 @@ public class BookingBl {
     }*/
 
     //Obtener booking por tutor
-    public List<Booking> findBookingByTutor(Integer id){
+    public List<BookingDto> findBookingByTutor(Integer id){
         List<Booking> booking = bookingRepository.findBookingByTutorId(id);
-        return booking;
+        List<BookingDto> bookingDto = new ArrayList<>();
+        for (Booking booking1: booking) {
+            BookingDto bookingDto1 = new BookingDto();
+            bookingDto1.setBookingId(booking1.getBookingId());
+            bookingDto1.setTutorId(booking1.getTutor().getTutorId());
+            bookingDto1.setBabysitterId(booking1.getBabysitter().getBabysitterId());
+            bookingDto1.setBookingChild(booking1.getBookingChild());
+            bookingDto1.setBookingEstimatedTime(booking1.getBookingEstimatedTime());
+            bookingDto1.setBookingTimeStart(booking1.getBookingTimeStart());
+            bookingDto1.setBookingTimeEnd(booking1.getBookingTimeEnd());
+            bookingDto1.setBookingDate(booking1.getBookingDate());
+            bookingDto1.setBookingStatus(booking1.getBookingStatus());
+            bookingDto1.setBookingCompleted(booking1.getBookingCompleted());
+            bookingDto1.setBookingPaid(booking1.getBookingPaid());
+            bookingDto1.setBookingAmount(booking1.getBookingAmount());
+            bookingDto.add(bookingDto1);
+        }
+        System.out.println("booking: " + booking);
+        return bookingDto;
     }
+
+    // obtener Lista Booking por tutor
+    public List<BookingListDto> findBookingListByTutorId(Integer id){
+        List<BookingListDto> bookingListDto = bookingRepository.findBookingListByTutorId(id);
+        return bookingListDto;
+    }
+
+
     /*public void findBookingByTutor(Integer id){
         List<Booking> booking = bookingRepository.findBookingByTutorId(id);
         System.out.println("booking: " + booking);
     }*/
+
+    //Modificar el estatus del booking
+    public void updateBookingStatus(Integer id, BookingStatusServiceDto status){
+        Booking booking = bookingRepository.findByBookingId(id);
+        if(status.getBookingCompleted() == 3){
+            booking.setBookingCompleted(3);
+            booking.setBookingPaid(true);
+            booking.setBookingAmount(status.getBookingAmount());
+            bookingRepository.save(booking);
+        }else {
+            booking.setBookingCompleted(status.getBookingCompleted());
+            bookingRepository.save(booking);
+        }
+    }
 }

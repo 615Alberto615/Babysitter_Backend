@@ -1,5 +1,6 @@
 package com.softbabysi.demo.Api;
 import com.softbabysi.demo.Bl.FavoriteBl;
+import com.softbabysi.demo.Bl.UserBl;
 import com.softbabysi.demo.Dto.FavoriteDto;
 import com.softbabysi.demo.Dto.ResponseDto;
 import com.softbabysi.demo.entity.Favorite;
@@ -15,6 +16,9 @@ import java.util.List;
 public class FavoriteApi {
     @Autowired
     private FavoriteBl favoriteBl;
+
+    @Autowired
+    private UserBl userBl;
 
     //Obtener todos los favoritos por id de tutor
     @GetMapping("/tutor/{id}")
@@ -33,6 +37,21 @@ public class FavoriteApi {
         favoriteBl.createFavorite(favoriteDto);
         try {
             return ResponseEntity.ok(new ResponseDto<>(200, null, "Favorito creado"));
+        }catch (Exception e){
+            e.printStackTrace();
+            return ResponseEntity.ok(new ResponseDto<>(500, null, "Error"));
+        }
+    }
+
+    //Eliminar un favorito de manera permanente
+    @DeleteMapping("/{id}")
+    public ResponseEntity<ResponseDto<Favorite>> deleteFavorite(@PathVariable Integer id, @RequestHeader("Authorization") String token){
+        favoriteBl.deleteFavorite(id);
+        try {
+            if (!userBl.validateToken(token)) {
+                return ResponseEntity.status(401).body(new ResponseDto<>(401, null, "Unauthorized"));
+            }
+            return ResponseEntity.ok(new ResponseDto<>(200, null, "Favorito eliminado"));
         }catch (Exception e){
             e.printStackTrace();
             return ResponseEntity.ok(new ResponseDto<>(500, null, "Error"));

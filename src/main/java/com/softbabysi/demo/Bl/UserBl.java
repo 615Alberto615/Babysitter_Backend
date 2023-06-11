@@ -1,5 +1,10 @@
 package com.softbabysi.demo.Bl;
 
+import com.auth0.jwt.JWT;
+import com.auth0.jwt.JWTVerifier;
+import com.auth0.jwt.algorithms.Algorithm;
+import com.auth0.jwt.exceptions.JWTVerificationException;
+import com.auth0.jwt.interfaces.DecodedJWT;
 import org.mindrot.jbcrypt.BCrypt;
 import com.softbabysi.demo.Dto.*;
 import com.softbabysi.demo.dao.BabySitterRepository;
@@ -14,6 +19,7 @@ import jakarta.transaction.Transactional;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import java.util.Date;
 import java.util.List;
 
 @Service
@@ -29,6 +35,8 @@ public class UserBl {
 
     @Autowired
     private UserRoleRepository userRoleRepository;
+
+    public static final String KEY = "AppSoftBabySI";
 
     //Crear una niñera
     @Transactional
@@ -133,12 +141,82 @@ public class UserBl {
             System.out.println("User id " + user.getUserId());
             boolean chech = BCrypt.checkpw(secret, user.getUserSecret());
             if (user.getUserEmail().equals(email) && chech == true) {
+                TokenDto tokenDto = new TokenDto();
+                tokenDto.setAuthToken(generateToken(user.getUserId(), user.getSeRoleId(), "AUTH", 120));
+                user.setToken(tokenDto.getAuthToken());
                 return user;
             }
         }
 
         return null; // Retorna null si no se encuentra un usuario con las credenciales proporcionadas
     }
+
+    //Token
+
+    private String generateToken(Integer userId, Integer seRoleId, String type, int minutes){
+        try {
+            Algorithm algorithm = Algorithm.HMAC256(KEY);
+            String token  = JWT.create()
+                    .withIssuer("www.softbabysi.com")
+                    .withClaim("userId", userId)
+                    .withClaim("seRoleId", seRoleId)
+                    .withClaim("type", type)
+                    .withExpiresAt(new Date(System.currentTimeMillis() + 1000 * 60 * minutes))
+                    .sign(algorithm);
+            return token;
+        }catch (Exception e){
+            e.printStackTrace();
+            System.out.println("Error al generar el token " + userId + " " + seRoleId + " " + type + " " + minutes);
+            throw new RuntimeException("Error al generar el token", e);
+        }
+    }
+
+    public boolean validateToken(String token){
+        if(token != null && token.startsWith("Bearer ")) {
+            token = token.substring(7);
+        }
+        DecodedJWT decodedJWT;
+        try {
+            Algorithm algorithm = Algorithm.HMAC256(KEY);
+            JWTVerifier verifier = JWT.require(algorithm)
+                    // specify an specific claim validations
+                    .withIssuer("www.softbabysi.com")
+                    // reusable verifier instance
+                    .build();
+            decodedJWT = verifier.verify(token);
+            return true;
+        } catch (JWTVerificationException exception){
+            System.err.print("Token invalido: " + exception.getMessage());
+            return false;
+        }
+    }
+
+    // Eliminar el ususario de forma logica
+    public void deleteUser(Integer id){
+        User user = userRepository.findByUserId(id);
+        user.setUserStatus(false);
+        userRepository.save(user);
+    }
+
+    // Actualizar el usuario
+    public void updateUser(Integer id, UserEditDto userEditDto){
+        User user = userRepository.findByUserId(id);
+        user.setSeLocationId(userEditDto.getSeLocationId());
+        user.setUserName(userEditDto.getUserName());
+        user.setUserLastname(userEditDto.getUserLastname());
+        user.setUserPhone(userEditDto.getUserPhone());
+        user.setUserAddres(userEditDto.getUserAddres());
+        userRepository.save(user);
+    }
+
+    //Actualizar password
+    public void updatePassword(Integer id, UserEditSecretDto userEditSecretDto){
+        User user = userRepository.findByUserId(id);
+        String HashedPassword = BCrypt.hashpw(userEditSecretDto.getUserSecret(), BCrypt.gensalt());
+        user.setUserSecret(HashedPassword);
+        userRepository.save(user);
+    }
+
 
     /*public User save(User newUser){
         return userRepository.save(newUser);

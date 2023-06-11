@@ -5,8 +5,17 @@ public class UserLoginDto {
     private Integer seRoleId;
     private String userEmail;
     private String userSecret;
+    private String token;
 
     public UserLoginDto() {
+    }
+
+    public UserLoginDto(Integer userId, Integer seRoleId, String userEmail, String userSecret, String token) {
+        this.userId = userId;
+        this.seRoleId = seRoleId;
+        this.userEmail = userEmail;
+        this.userSecret = userSecret;
+        this.token = token;
     }
 
     public UserLoginDto(Integer userId, Integer seRoleId, String userEmail, String userSecret) {
@@ -48,6 +57,14 @@ public class UserLoginDto {
         this.userSecret = userSecret;
     }
 
+    public String getToken() {
+        return token;
+    }
+
+    public void setToken(String token) {
+        this.token = token;
+    }
+
     @Override
     public String toString() {
         return "UserLoginDto{" +
@@ -55,6 +72,7 @@ public class UserLoginDto {
                 ", seRoleId=" + seRoleId +
                 ", userEmail='" + userEmail + '\'' +
                 ", userSecret='" + userSecret + '\'' +
+                ", token='" + token + '\'' +
                 '}';
     }
 }

@@ -33,6 +33,23 @@ public class ChilCareFormApi {
 
     }
 
+    // Obtener todos los formularios de un niño
+    /*@GetMapping("/{id}")
+    public ResponseEntity<ResponseDto<List<ChildCareFormDto>>> getAllChildCareFormByChildId(@PathVariable Integer id){
+        ResponseDto<List<ChildCareFormDto>> responseDto = new ResponseDto<>();
+        try {
+            responseDto.setCode(0000);
+            responseDto.setData(childCareFormBl.getAllChildCareFormByChildId(id));
+            responseDto.setMessage("ChildCareForm retrieved successfully");
+            return ResponseEntity.ok(responseDto);
+        }catch (Exception e) {
+            responseDto.setCode(500);
+            responseDto.setMessage("error");
+            return ResponseEntity.ok(responseDto);
+        }
+
+    }*/
+
 
 
 }

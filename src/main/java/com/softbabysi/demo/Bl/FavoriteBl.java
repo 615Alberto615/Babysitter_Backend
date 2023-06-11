@@ -49,4 +49,9 @@ public class FavoriteBl {
         List<Favorite> favorites = favoriteRepository.findFavoriteByTutorId(tutorId);
         return favorites;
     }
+
+    //Eliminar un favorito de manera permanente
+    public void deleteFavorite(Integer id){
+        favoriteRepository.deleteById(Long.valueOf(id));
+    }
 }
