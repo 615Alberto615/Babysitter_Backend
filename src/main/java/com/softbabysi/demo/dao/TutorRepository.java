@@ -1,5 +1,6 @@
 package com.softbabysi.demo.dao;
 
+import com.softbabysi.demo.Dto.LocationDto;
 import com.softbabysi.demo.entity.Babysitter;
 import com.softbabysi.demo.entity.Tutor;
 import org.apache.juli.logging.Log;
@@ -18,4 +19,8 @@ public interface TutorRepository extends JpaRepository<Tutor, Integer>{
     public Tutor findTutorByUserId(Integer id);
 
     Tutor findByTutorId(Integer id);
+
+    //Locacion por tutor
+    @Query("SELECT new com.softbabysi.demo.Dto.LocationDto(u.seLocationId) FROM User u JOIN Tutor t ON u.userId = t.user.userId WHERE t.tutorId = ?1")
+    LocationDto getLocationByTutorId(Integer id);
 }

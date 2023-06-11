@@ -3,6 +3,7 @@ package com.softbabysi.demo.Api;
 import com.softbabysi.demo.Bl.BabysitterBl;
 import com.softbabysi.demo.Bl.TutorBl;
 import com.softbabysi.demo.Dto.BabysitterDto;
+import com.softbabysi.demo.Dto.LocationDto;
 import com.softbabysi.demo.Dto.ResponseDto;
 import com.softbabysi.demo.Dto.TutorDto;
 import com.softbabysi.demo.entity.Tutor;
@@ -61,6 +62,19 @@ public class TutorApi {
         }catch (Exception e) {
             System.out.println(e);
             return ResponseEntity.ok(new ResponseDto<>(500, null, "Error"));
+        }
+
+    }
+
+    // location por id de tutor
+    @GetMapping("/location/{id}")
+    public ResponseEntity<ResponseDto<LocationDto>> getLocationByTutorId(@PathVariable Integer id){
+        LocationDto location = tutorBl.getLocationByTutorId(id);
+        try {
+            return ResponseEntity.ok(new ResponseDto<>(200, location, "Location"));
+        }catch (Exception e) {
+            System.out.println(e);
+            return ResponseEntity.ok(new ResponseDto<>(500, null, "Error con locacion"));
         }
 
     }

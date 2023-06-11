@@ -1,5 +1,6 @@
 package com.softbabysi.demo.Bl;
 
+import com.softbabysi.demo.Dto.LocationDto;
 import com.softbabysi.demo.Dto.TutorDto;
 import com.softbabysi.demo.dao.TutorDao;
 import com.softbabysi.demo.dao.TutorRepository;
@@ -35,7 +36,12 @@ public class TutorBl {
         return tutor;
     }
 
+    // location por id tutor
+    public LocationDto getLocationByTutorId(Integer id){
+        LocationDto locationDto = tutorRepository.getLocationByTutorId(id);
 
+        return locationDto;
+    }
 
 
 

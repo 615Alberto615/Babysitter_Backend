@@ -26,4 +26,6 @@ public interface UserRepository extends JpaRepository<User, Long>{
     @Query("SELECT new com.softbabysi.demo.Dto.BabysitterListDto(b.babysitterId, u.seLocationId, u.userName, u.userLastname, u.userEmail, u.userAddres, b.babysitterCI, b.babysitterPhoneContact, b.babysitterDescription, b.babysitterVerify) FROM User u JOIN Babysitter b ON u.userId = b.user.userId WHERE u.userStatus = true AND b.babysitterStatus = true")
     List<BabysitterListDto> getBabysiiterData();
 
+
+
 }
