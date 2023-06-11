@@ -100,6 +100,24 @@ public class BookingApi {
         }
     }
 
+    // Lista booking por id de babysitter
+    @GetMapping(path = "/babysitter/{id}/")
+    public ResponseEntity<ResponseDto<List<BookingListDto>>> findBookingByBabysitterIdList(@PathVariable Integer id, @RequestHeader("Authorization") String token){
+        List<BookingListDto> bookings = bookingBl.findBookingListByBabysitterId(id);
+
+        try {
+            if(!userBl.validateToken(token)){
+                return ResponseEntity.status(HttpStatus.UNAUTHORIZED).body(new ResponseDto<>(401, null, "Unauthorized"));
+            }
+            System.out.println("token autorizado");
+
+            return ResponseEntity.ok(new ResponseDto<>(200, bookings, "Babysitter"));
+        }catch (Exception e){
+            e.printStackTrace();
+            return ResponseEntity.ok(new ResponseDto<>(500, null, "Error"));
+        }
+    }
+
     // Actualizar reserva
     @PutMapping(path = "/{id}")
     public ResponseEntity<ResponseDto<Booking>> updateBooking(@RequestBody BookingDto bookingDto, @PathVariable Integer id, @RequestHeader("Authorization") String token){

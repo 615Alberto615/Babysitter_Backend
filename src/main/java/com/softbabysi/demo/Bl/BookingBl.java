@@ -129,6 +129,12 @@ public class BookingBl {
         return bookingListDto;
     }
 
+    // obtener Lista Booking por babysitter
+    public List<BookingListDto> findBookingListByBabysitterId(Integer id){
+        List<BookingListDto> bookingListDto = bookingRepository.findBookingListByBabysitterId(id);
+        return bookingListDto;
+    }
+
 
     /*public void findBookingByTutor(Integer id){
         List<Booking> booking = bookingRepository.findBookingByTutorId(id);
