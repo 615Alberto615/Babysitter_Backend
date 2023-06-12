@@ -21,9 +21,9 @@ public interface BookingRepository extends JpaRepository<Booking, Long> {
     public List<Booking> findBookingByTutorId(Integer id);
 
     //Lista de bookings por id de tutor
-    @Query("SELECT new com.softbabysi.demo.Dto.BookingListDto(b.bookingId, u.userName, u.userLastname, b.babysitter.babysitterId, b.tutor.tutorId, b.bookingChild, b.bookingEstimatedTime, b.bookingTimeStart, b.bookingTimeEnd, b.bookingDate, b.bookingStatus, b.bookingCompleted, b.bookingPaid, b.bookingAmount) FROM Booking b JOIN Babysitter t JOIN User u JOIN Tutor tu WHERE u.userId = t.user.userId AND t.babysitterId = b.babysitter.babysitterId AND tu.tutorId = ?1")
+    @Query("SELECT new com.softbabysi.demo.Dto.BookingListDto(b.bookingId, u.userName, u.userLastname, u.userPhone, b.babysitter.babysitterId, b.tutor.tutorId, b.bookingChild, b.bookingEstimatedTime, b.bookingTimeStart, b.bookingTimeEnd, b.bookingDate, b.bookingStatus, b.bookingCompleted, b.bookingPaid, b.bookingAmount) FROM Booking b JOIN Babysitter t JOIN User u JOIN Tutor tu WHERE u.userId = t.user.userId AND t.babysitterId = b.babysitter.babysitterId AND tu.tutorId = ?1")
     public List<BookingListDto> findBookingListByTutorId(Integer id);
 
-    @Query("SELECT new com.softbabysi.demo.Dto.BookingListDto(b.bookingId, u.userName, u.userLastname, b.babysitter.babysitterId, b.tutor.tutorId, b.bookingChild, b.bookingEstimatedTime, b.bookingTimeStart, b.bookingTimeEnd, b.bookingDate, b.bookingStatus, b.bookingCompleted, b.bookingPaid, b.bookingAmount) FROM Booking b JOIN Babysitter t JOIN User u JOIN Tutor tu WHERE u.userId = tu.user.userId AND tu.tutorId = b.tutor.tutorId AND t.babysitterId = ?1")
+    @Query("SELECT new com.softbabysi.demo.Dto.BookingListDto(b.bookingId, u.userName, u.userLastname, u.userPhone, b.babysitter.babysitterId, b.tutor.tutorId, b.bookingChild, b.bookingEstimatedTime, b.bookingTimeStart, b.bookingTimeEnd, b.bookingDate, b.bookingStatus, b.bookingCompleted, b.bookingPaid, b.bookingAmount) FROM Booking b JOIN Babysitter t JOIN User u JOIN Tutor tu WHERE u.userId = tu.user.userId AND tu.tutorId = b.tutor.tutorId AND t.babysitterId = ?1")
     public List<BookingListDto> findBookingListByBabysitterId(Integer id);
 }

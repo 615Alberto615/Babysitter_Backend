@@ -6,6 +6,7 @@ public class BookingListDto {
     private Integer bookingId;
     private String userName;
     private String userLastName;
+    private String userPhone;
     private Integer babysitterId;
     private Integer tutorId;
     private String bookingChild; // Backed dato por default
@@ -21,10 +22,11 @@ public class BookingListDto {
     public BookingListDto() {
     }
 
-    public BookingListDto(Integer bookingId, String userName, String userLastName, Integer babysitterId, Integer tutorId, String bookingChild, Integer bookingEstimatedTime, Date bookingTimeStart, Date bookingTimeEnd, Date bookingDate, Boolean bookingStatus, Integer bookingCompleted, Boolean bookingPaid, Double bookingAmount) {
+    public BookingListDto(Integer bookingId, String userName, String userLastName, String userPhone, Integer babysitterId, Integer tutorId, String bookingChild, Integer bookingEstimatedTime, Date bookingTimeStart, Date bookingTimeEnd, Date bookingDate, Boolean bookingStatus, Integer bookingCompleted, Boolean bookingPaid, Double bookingAmount) {
         this.bookingId = bookingId;
         this.userName = userName;
         this.userLastName = userLastName;
+        this.userPhone = userPhone;
         this.babysitterId = babysitterId;
         this.tutorId = tutorId;
         this.bookingChild = bookingChild;
@@ -60,6 +62,14 @@ public class BookingListDto {
 
     public void setUserLastName(String userLastName) {
         this.userLastName = userLastName;
+    }
+
+    public String getUserPhone() {
+        return userPhone;
+    }
+
+    public void setUserPhone(String userPhone) {
+        this.userPhone = userPhone;
     }
 
     public Integer getBabysitterId() {
@@ -148,25 +158,5 @@ public class BookingListDto {
 
     public void setBookingAmount(Double bookingAmount) {
         this.bookingAmount = bookingAmount;
-    }
-
-    @Override
-    public String toString() {
-        return "BookingListDto{" +
-                "bookingId=" + bookingId +
-                ", userName='" + userName + '\'' +
-                ", userLastName='" + userLastName + '\'' +
-                ", babysitterId=" + babysitterId +
-                ", tutorId=" + tutorId +
-                ", bookingChild='" + bookingChild + '\'' +
-                ", bookingEstimatedTime=" + bookingEstimatedTime +
-                ", bookingTimeStart=" + bookingTimeStart +
-                ", bookingTimeEnd=" + bookingTimeEnd +
-                ", bookingDate=" + bookingDate +
-                ", bookingStatus=" + bookingStatus +
-                ", bookingCompleted=" + bookingCompleted +
-                ", bookingPaid=" + bookingPaid +
-                ", bookingAmount=" + bookingAmount +
-                '}';
     }
 }
