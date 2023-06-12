@@ -34,4 +34,7 @@ public class ReportBabysitterApi {
         }
 
     }
+
+    //Agregar un nuevo reporte
+
 }

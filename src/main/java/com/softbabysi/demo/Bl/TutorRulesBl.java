@@ -31,6 +31,12 @@ public class TutorRulesBl {
         return tutorRules;
     }
 
+    //eliminar por id
+    @Transactional
+    public void deleteTutorRules(Integer id){
+        tutorRulesRepository.deleteById(id);
+    }
+
 
 
 }

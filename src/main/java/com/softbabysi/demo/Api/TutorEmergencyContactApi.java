@@ -52,4 +52,19 @@ public class TutorEmergencyContactApi {
             return ResponseEntity.ok(new ResponseDto<>(500, null, "Error"));
         }
     }
+
+    //Eliminar por id
+    @DeleteMapping(path = "/{id}")
+    public ResponseEntity<ResponseDto<TutorEmergencyContact>> deleteTutorEmergencyContact(@PathVariable Integer id, @RequestHeader("Authorization") String token){
+        tutorEmergencyContactBl.deleteTutorEmergencyContact(id);
+        try {
+            if(!userBl.validateToken(token)){
+                return ResponseEntity.status(HttpStatus.UNAUTHORIZED).body(new ResponseDto<>(401, null, "Unauthorized"));
+            }
+            System.out.println("token autorizado");
+            return ResponseEntity.ok(new ResponseDto<>(200, null, "Tutor emergency contact deleted"));
+        }catch (Exception e) {
+            return ResponseEntity.ok(new ResponseDto<>(500, null, "Error"));
+        }
+    }
 }

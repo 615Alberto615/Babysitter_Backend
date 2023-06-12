@@ -53,4 +53,19 @@ public class TutorRulesApi {
         }
 
     }
+
+    // Eliminar reglas por id
+    @DeleteMapping(path = "/{id}")
+    public ResponseEntity<ResponseDto<TutorRules>> deleteTutorRules(@PathVariable Integer id, @RequestHeader("Authorization") String token){
+        tutorRulesBl.deleteTutorRules(id);
+        try {
+            if(!userBl.validateToken(token)){
+                return ResponseEntity.status(HttpStatus.UNAUTHORIZED).body(new ResponseDto<>(401, null, "Unauthorized"));
+            }
+            System.out.println("token autorizado");
+            return ResponseEntity.ok(new ResponseDto<>(200, null, "Tutor rules deleted"));
+        }catch (Exception e) {
+            return ResponseEntity.ok(new ResponseDto<>(500, null, "Error"));
+        }
+    }
 }

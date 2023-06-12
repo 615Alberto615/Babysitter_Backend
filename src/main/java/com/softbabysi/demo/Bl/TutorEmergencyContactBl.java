@@ -31,4 +31,10 @@ public class TutorEmergencyContactBl {
         List<TutorEmergencyContact> tutorEmergencyContact = tutorEmergencyContactRepository.findTutorEmergencyContactByTutorId(id);
         return tutorEmergencyContact;
     }
+
+    //Eliminar por id
+    @Transactional
+    public void deleteTutorEmergencyContact(Integer id){
+        tutorEmergencyContactRepository.deleteById(id);
+    }
 }
