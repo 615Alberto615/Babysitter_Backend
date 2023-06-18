@@ -13,7 +13,7 @@ public class ChildActivity implements Serializable {
     private Integer childActivityId;
 
     @OneToOne
-    @JoinColumn(name = "TUTOR_ID", nullable = false)
+    @JoinColumn(name = "SE_TUTOR_TUTOR_ID", nullable = false)
     private Tutor tutor;
 
     @Column(name = "ACTIVITY_TABLE_GAMES", nullable = false)
