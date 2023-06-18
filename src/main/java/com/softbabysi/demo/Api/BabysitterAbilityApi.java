@@ -3,6 +3,7 @@ package com.softbabysi.demo.Api;
 import com.softbabysi.demo.Bl.BabysitterAbilityBl;
 import com.softbabysi.demo.Bl.UserBl;
 import com.softbabysi.demo.Dto.BabysitterAbilityDto;
+import com.softbabysi.demo.Dto.BabysitterAbilityEditDto;
 import com.softbabysi.demo.Dto.ResponseDto;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
@@ -57,6 +58,21 @@ public class BabysitterAbilityApi {
             responseDto.setCode(500);
             responseDto.setMessage("error");
             return ResponseEntity.ok(responseDto);
+        }
+    }
+
+    //Modificar por id
+    @PutMapping("/{id}")
+    public ResponseEntity<ResponseDto<BabysitterAbilityDto>> update(@PathVariable Integer id, @RequestBody BabysitterAbilityEditDto babysitterAbilityDto, @RequestHeader("Authorization") String token){
+        babysitterAbilityBl.updateById(id, babysitterAbilityDto);
+        try {
+            if(!userBl.validateToken(token)){
+                return ResponseEntity.status(HttpStatus.UNAUTHORIZED).body(new ResponseDto<>(401, null, "Unauthorized"));
+            }
+            System.out.println("token autorizado");
+            return ResponseEntity.ok(new ResponseDto<>(200, null, "BabysitterAbility updated successfully"));
+        }catch (Exception e) {
+            return ResponseEntity.ok(new ResponseDto<>(500, null, "error"));
         }
     }
 }

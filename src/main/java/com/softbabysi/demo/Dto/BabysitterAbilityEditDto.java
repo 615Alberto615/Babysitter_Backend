@@ -2,26 +2,24 @@ package com.softbabysi.demo.Dto;
 
 public class BabysitterAbilityEditDto {
 
-    private Integer babysitterId;
-    private boolean abilityKnowledgeChildDevelopment;
-    private boolean abilityEmpeathyAndPatience;
-    private boolean abilityEfectiveCommunication;
-    private boolean abilityOrganizationalSkills;
-    private boolean abilityFlexibilityAndAdaptability;
-    private boolean abilityFirstAid;
-    private boolean abilityCulturalSensitivity;
-    private boolean abilityConflictsResolution;
-    private boolean abilityCreativity;
-    private boolean abilitySpecialNeeds;
-    private boolean abilityCrefulObservation;
-    private boolean abilityTasteForTeaching;
-    private boolean abilityNone;
+    private Boolean abilityKnowledgeChildDevelopment;
+    private Boolean abilityEmpeathyAndPatience;
+    private Boolean abilityEfectiveCommunication;
+    private Boolean abilityOrganizationalSkills;
+    private Boolean abilityFlexibilityAndAdaptability;
+    private Boolean abilityFirstAid;
+    private Boolean abilityCulturalSensitivity;
+    private Boolean abilityConflictsResolution;
+    private Boolean abilityCreativity;
+    private Boolean abilitySpecialNeeds;
+    private Boolean abilityCrefulObservation;
+    private Boolean abilityTasteForTeaching;
+    private Boolean abilityNone;
 
     public BabysitterAbilityEditDto() {
     }
 
-    public BabysitterAbilityEditDto(Integer babysitterId, boolean abilityKnowledgeChildDevelopment, boolean abilityEmpeathyAndPatience, boolean abilityEfectiveCommunication, boolean abilityOrganizationalSkills, boolean abilityFlexibilityAndAdaptability, boolean abilityFirstAid, boolean abilityCulturalSensitivity, boolean abilityConflictsResolution, boolean abilityCreativity, boolean abilitySpecialNeeds, boolean abilityCrefulObservation, boolean abilityTasteForTeaching, boolean abilityNone) {
-        this.babysitterId = babysitterId;
+    public BabysitterAbilityEditDto(Boolean abilityKnowledgeChildDevelopment, Boolean abilityEmpeathyAndPatience, Boolean abilityEfectiveCommunication, Boolean abilityOrganizationalSkills, Boolean abilityFlexibilityAndAdaptability, Boolean abilityFirstAid, Boolean abilityCulturalSensitivity, Boolean abilityConflictsResolution, Boolean abilityCreativity, Boolean abilitySpecialNeeds, Boolean abilityCrefulObservation, Boolean abilityTasteForTeaching, Boolean abilityNone) {
         this.abilityKnowledgeChildDevelopment = abilityKnowledgeChildDevelopment;
         this.abilityEmpeathyAndPatience = abilityEmpeathyAndPatience;
         this.abilityEfectiveCommunication = abilityEfectiveCommunication;
@@ -37,123 +35,114 @@ public class BabysitterAbilityEditDto {
         this.abilityNone = abilityNone;
     }
 
-    public Integer getBabysitterId() {
-        return babysitterId;
-    }
-
-    public void setBabysitterId(Integer babysitterId) {
-        this.babysitterId = babysitterId;
-    }
-
-    public boolean isAbilityKnowledgeChildDevelopment() {
+    public Boolean getAbilityKnowledgeChildDevelopment() {
         return abilityKnowledgeChildDevelopment;
     }
 
-    public void setAbilityKnowledgeChildDevelopment(boolean abilityKnowledgeChildDevelopment) {
+    public void setAbilityKnowledgeChildDevelopment(Boolean abilityKnowledgeChildDevelopment) {
         this.abilityKnowledgeChildDevelopment = abilityKnowledgeChildDevelopment;
     }
 
-    public boolean isAbilityEmpeathyAndPatience() {
+    public Boolean getAbilityEmpeathyAndPatience() {
         return abilityEmpeathyAndPatience;
     }
 
-    public void setAbilityEmpeathyAndPatience(boolean abilityEmpeathyAndPatience) {
+    public void setAbilityEmpeathyAndPatience(Boolean abilityEmpeathyAndPatience) {
         this.abilityEmpeathyAndPatience = abilityEmpeathyAndPatience;
     }
 
-    public boolean isAbilityEfectiveCommunication() {
+    public Boolean getAbilityEfectiveCommunication() {
         return abilityEfectiveCommunication;
     }
 
-    public void setAbilityEfectiveCommunication(boolean abilityEfectiveCommunication) {
+    public void setAbilityEfectiveCommunication(Boolean abilityEfectiveCommunication) {
         this.abilityEfectiveCommunication = abilityEfectiveCommunication;
     }
 
-    public boolean isAbilityOrganizationalSkills() {
+    public Boolean getAbilityOrganizationalSkills() {
         return abilityOrganizationalSkills;
     }
 
-    public void setAbilityOrganizationalSkills(boolean abilityOrganizationalSkills) {
+    public void setAbilityOrganizationalSkills(Boolean abilityOrganizationalSkills) {
         this.abilityOrganizationalSkills = abilityOrganizationalSkills;
     }
 
-    public boolean isAbilityFlexibilityAndAdaptability() {
+    public Boolean getAbilityFlexibilityAndAdaptability() {
         return abilityFlexibilityAndAdaptability;
     }
 
-    public void setAbilityFlexibilityAndAdaptability(boolean abilityFlexibilityAndAdaptability) {
+    public void setAbilityFlexibilityAndAdaptability(Boolean abilityFlexibilityAndAdaptability) {
         this.abilityFlexibilityAndAdaptability = abilityFlexibilityAndAdaptability;
     }
 
-    public boolean isAbilityFirstAid() {
+    public Boolean getAbilityFirstAid() {
         return abilityFirstAid;
     }
 
-    public void setAbilityFirstAid(boolean abilityFirstAid) {
+    public void setAbilityFirstAid(Boolean abilityFirstAid) {
         this.abilityFirstAid = abilityFirstAid;
     }
 
-    public boolean isAbilityCulturalSensitivity() {
+    public Boolean getAbilityCulturalSensitivity() {
         return abilityCulturalSensitivity;
     }
 
-    public void setAbilityCulturalSensitivity(boolean abilityCulturalSensitivity) {
+    public void setAbilityCulturalSensitivity(Boolean abilityCulturalSensitivity) {
         this.abilityCulturalSensitivity = abilityCulturalSensitivity;
     }
 
-    public boolean isAbilityConflictsResolution() {
+    public Boolean getAbilityConflictsResolution() {
         return abilityConflictsResolution;
     }
 
-    public void setAbilityConflictsResolution(boolean abilityConflictsResolution) {
+    public void setAbilityConflictsResolution(Boolean abilityConflictsResolution) {
         this.abilityConflictsResolution = abilityConflictsResolution;
     }
 
-    public boolean isAbilityCreativity() {
+    public Boolean getAbilityCreativity() {
         return abilityCreativity;
     }
 
-    public void setAbilityCreativity(boolean abilityCreativity) {
+    public void setAbilityCreativity(Boolean abilityCreativity) {
         this.abilityCreativity = abilityCreativity;
     }
 
-    public boolean isAbilitySpecialNeeds() {
+    public Boolean getAbilitySpecialNeeds() {
         return abilitySpecialNeeds;
     }
 
-    public void setAbilitySpecialNeeds(boolean abilitySpecialNeeds) {
+    public void setAbilitySpecialNeeds(Boolean abilitySpecialNeeds) {
         this.abilitySpecialNeeds = abilitySpecialNeeds;
     }
 
-    public boolean isAbilityCrefulObservation() {
+    public Boolean getAbilityCrefulObservation() {
         return abilityCrefulObservation;
     }
 
-    public void setAbilityCrefulObservation(boolean abilityCrefulObservation) {
+    public void setAbilityCrefulObservation(Boolean abilityCrefulObservation) {
         this.abilityCrefulObservation = abilityCrefulObservation;
     }
 
-    public boolean isAbilityTasteForTeaching() {
+    public Boolean getAbilityTasteForTeaching() {
         return abilityTasteForTeaching;
     }
 
-    public void setAbilityTasteForTeaching(boolean abilityTasteForTeaching) {
+    public void setAbilityTasteForTeaching(Boolean abilityTasteForTeaching) {
         this.abilityTasteForTeaching = abilityTasteForTeaching;
     }
 
-    public boolean isAbilityNone() {
+    public Boolean getAbilityNone() {
         return abilityNone;
     }
 
-    public void setAbilityNone(boolean abilityNone) {
+    public void setAbilityNone(Boolean abilityNone) {
         this.abilityNone = abilityNone;
     }
 
     @Override
     public String toString() {
         return "BabysitterAbilityEditDto{" +
-                "babysitterId=" + babysitterId +
-                ", abilityKnowledgeChildDevelopment=" + abilityKnowledgeChildDevelopment +
+                "abilityKnowledgeChildDevelopment=" + abilityKnowledgeChildDevelopment +
                 ", abilityEmpeathyAndPatience=" + abilityEmpeathyAndPatience +
                 ", abilityEfectiveCommunication=" + abilityEfectiveCommunication +
                 ", abilityOrganizationalSkills=" + abilityOrganizationalSkills +

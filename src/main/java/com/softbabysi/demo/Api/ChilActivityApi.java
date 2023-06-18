@@ -3,6 +3,7 @@ package com.softbabysi.demo.Api;
 import com.softbabysi.demo.Bl.ChildActivityBl;
 import com.softbabysi.demo.Bl.UserBl;
 import com.softbabysi.demo.Dto.ChildActivityDto;
+import com.softbabysi.demo.Dto.ChildActivityEditDto;
 import com.softbabysi.demo.Dto.ResponseDto;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
@@ -57,6 +58,22 @@ public class ChilActivityApi {
             responseDto.setCode(500);
             responseDto.setMessage("error");
             return ResponseEntity.ok(responseDto);
+        }
+
+    }
+
+    // modificar por id
+    @PutMapping("/{id}")
+    public ResponseEntity<ResponseDto<ChildActivityDto>> update(@PathVariable Integer id, @RequestBody ChildActivityEditDto childActivityDto, @RequestHeader("Authorization") String token){
+        childActivityBl.updateById(id, childActivityDto);
+        try {
+            if(!userBl.validateToken(token)){
+                return ResponseEntity.status(HttpStatus.UNAUTHORIZED).body(new ResponseDto<>(401, null, "Unauthorized"));
+            }
+            System.out.println("token autorizado");
+            return ResponseEntity.ok(new ResponseDto<>(200, null, "ChildActivity updated successfully"));
+        } catch (Exception e) {
+            return ResponseEntity.ok(new ResponseDto<>(500, null, "error"));
         }
 
     }

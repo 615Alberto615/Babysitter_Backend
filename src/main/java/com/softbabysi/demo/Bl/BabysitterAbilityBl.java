@@ -1,6 +1,7 @@
 package com.softbabysi.demo.Bl;
 
 import com.softbabysi.demo.Dto.BabysitterAbilityDto;
+import com.softbabysi.demo.Dto.BabysitterAbilityEditDto;
 import com.softbabysi.demo.dao.BabysitterAbilityRepository;
 import com.softbabysi.demo.entity.BabysitterAbility;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -56,6 +57,27 @@ public class BabysitterAbilityBl {
         babysitterAbilityDto.setAbilityNone(babysitterAbility.getAbilityNone());
         return babysitterAbilityDto;
     }
+
+    // Modificar por id
+
+    public void updateById(Integer id, BabysitterAbilityEditDto babysitterAbilityEditDto){
+        BabysitterAbility babysitterAbility = babysitterAbilityRepository.findById(id);
+        babysitterAbility.setAbilityKnowledgeChildDevelopment(babysitterAbilityEditDto.getAbilityKnowledgeChildDevelopment());
+        babysitterAbility.setAbilityEmpathyAndPatience(babysitterAbilityEditDto.getAbilityEmpeathyAndPatience());
+        babysitterAbility.setAbilityEffectiveCommunication(babysitterAbilityEditDto.getAbilityEfectiveCommunication());
+        babysitterAbility.setAbilityOrganizationalSkills(babysitterAbilityEditDto.getAbilityOrganizationalSkills());
+        babysitterAbility.setAbilityFlexibilityAndAdaptability(babysitterAbilityEditDto.getAbilityFlexibilityAndAdaptability());
+        babysitterAbility.setAbilityFirstAid(babysitterAbilityEditDto.getAbilityFirstAid());
+        babysitterAbility.setAbilityCulturalSensitivity(babysitterAbilityEditDto.getAbilityCulturalSensitivity());
+        babysitterAbility.setAbilityConflictResolution(babysitterAbilityEditDto.getAbilityConflictsResolution());
+        babysitterAbility.setAbilityCreativity(babysitterAbilityEditDto.getAbilityCreativity());
+        babysitterAbility.setAbilitySpecialNeeds(babysitterAbilityEditDto.getAbilitySpecialNeeds());
+        babysitterAbility.setAbilityCarefulObservation(babysitterAbilityEditDto.getAbilityCrefulObservation());
+        babysitterAbility.setAbilityTasteForTeaching(babysitterAbilityEditDto.getAbilityTasteForTeaching());
+        babysitterAbility.setAbilityNone(babysitterAbilityEditDto.getAbilityNone());
+        babysitterAbilityRepository.save(babysitterAbility);
+    }
+
 
 
 }

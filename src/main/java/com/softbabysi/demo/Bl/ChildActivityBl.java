@@ -1,6 +1,7 @@
 package com.softbabysi.demo.Bl;
 
 import com.softbabysi.demo.Dto.ChildActivityDto;
+import com.softbabysi.demo.Dto.ChildActivityEditDto;
 import com.softbabysi.demo.dao.ChildActivityRepository;
 import com.softbabysi.demo.entity.ChildActivity;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -54,5 +55,24 @@ public class ChildActivityBl {
         childActivityDto.setActivityMoviesAndTvShows(childActivity.getActivityMoviesAndTvShows());
         childActivityDto.setActivityNone(childActivity.getActivityNone());
         return childActivityDto;
+    }
+
+    //Modificar por id
+    public void updateById(Integer id, ChildActivityEditDto childActivityDto){
+        ChildActivity childActivity = childActivityRepository.findById(id);
+        childActivity.setActivityTableGames(childActivityDto.getActivityTableGames());
+        childActivity.setActivityArtsAndCrafts(childActivityDto.getActivityArtsAndCrafts());
+        childActivity.setActivityReadingOfBooks(childActivityDto.getActivityReadingOfBooks());
+        childActivity.setActivityCookingAndPastry(childActivityDto.getActivityCookingAndPastry());
+        childActivity.setActivityOutdoorActivities(childActivityDto.getActivityOutdoorActivities());
+        childActivity.setActivityBlockConstruction(childActivityDto.getActivityBlockConstruction());
+        childActivity.setActivityRolePlays(childActivityDto.getActivityRolePlays());
+        childActivity.setActivityMusicAndDance(childActivityDto.getActivityMusicAndDance());
+        childActivity.setActivityExercisesAndYoga(childActivityDto.getActivityExercisesAndYoga());
+        childActivity.setActivityGardening(childActivityDto.getActivityGardening());
+        childActivity.setActivityConstructionOfFortresses(childActivityDto.getActivityConstructionOfFortresses());
+        childActivity.setActivityMoviesAndTvShows(childActivityDto.getActivityMoviesAndTvShows());
+        childActivity.setActivityNone(childActivityDto.getActivityNone());
+        childActivityRepository.save(childActivity);
     }
 }
