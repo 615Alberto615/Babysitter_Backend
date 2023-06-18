@@ -5,16 +5,10 @@ import com.auth0.jwt.JWTVerifier;
 import com.auth0.jwt.algorithms.Algorithm;
 import com.auth0.jwt.exceptions.JWTVerificationException;
 import com.auth0.jwt.interfaces.DecodedJWT;
+import com.softbabysi.demo.dao.*;
+import com.softbabysi.demo.entity.*;
 import org.mindrot.jbcrypt.BCrypt;
 import com.softbabysi.demo.Dto.*;
-import com.softbabysi.demo.dao.BabySitterRepository;
-import com.softbabysi.demo.dao.TutorRepository;
-import com.softbabysi.demo.dao.UserRepository;
-import com.softbabysi.demo.dao.UserRoleRepository;
-import com.softbabysi.demo.entity.Babysitter;
-import com.softbabysi.demo.entity.Tutor;
-import com.softbabysi.demo.entity.User;
-import com.softbabysi.demo.entity.UserRole;
 import jakarta.transaction.Transactional;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -35,6 +29,12 @@ public class UserBl {
 
     @Autowired
     private UserRoleRepository userRoleRepository;
+
+    @Autowired
+    private BabysitterAbilityRepository babysitterAbilityRepository;
+
+    @Autowired
+    private ChildActivityRepository childActivityRepository;
 
     public static final String KEY = "AppSoftBabySI";
 
@@ -78,6 +78,25 @@ public class UserBl {
         userRole.setSeRoleId(2);
         userRoleRepository.save(userRole);
 
+        // Crear las habilidades de la niñera
+
+        BabysitterAbility babysitterAbility = new BabysitterAbility();
+        babysitterAbility.setBabysitter(babysitter);
+        babysitterAbility.setAbilityKnowledgeChildDevelopment(false);
+        babysitterAbility.setAbilityEmpathyAndPatience(false);
+        babysitterAbility.setAbilityEffectiveCommunication(false);
+        babysitterAbility.setAbilityOrganizationalSkills(false);
+        babysitterAbility.setAbilityFlexibilityAndAdaptability(false);
+        babysitterAbility.setAbilityFirstAid(false);
+        babysitterAbility.setAbilityCulturalSensitivity(false);
+        babysitterAbility.setAbilityConflictResolution(false);
+        babysitterAbility.setAbilityCreativity(false);
+        babysitterAbility.setAbilitySpecialNeeds(false);
+        babysitterAbility.setAbilityCarefulObservation(false);
+        babysitterAbility.setAbilityTasteForTeaching(false);
+        babysitterAbility.setAbilityNone(false);
+        babysitterAbilityRepository.save(babysitterAbility);
+
     }
 
 
@@ -113,6 +132,25 @@ public class UserBl {
         userRole.setUser(user);
         userRole.setSeRoleId(1);
         userRoleRepository.save(userRole);
+
+        // Crear las actividades de los niños
+        ChildActivity childActivity = new ChildActivity();
+        childActivity.setTutor(tutor);
+        childActivity.setActivityTableGames(false);
+        childActivity.setActivityArtsAndCrafts(false);
+        childActivity.setActivityReadingOfBooks(false);
+        childActivity.setActivityCookingAndPastry(false);
+        childActivity.setActivityOutdoorActivities(false);
+        childActivity.setActivityBlockConstruction(false);
+        childActivity.setActivityRolePlays(false);
+        childActivity.setActivityMusicAndDance(false);
+        childActivity.setActivityExercisesAndYoga(false);
+        childActivity.setActivityGardening(false);
+        childActivity.setActivityConstructionOfFortresses(false);
+        childActivity.setActivityMoviesAndTvShows(false);
+        childActivity.setActivityMoviesAndTvShows(false);
+        childActivity.setActivityNone(false);
+        childActivityRepository.save(childActivity);
     }
 
     //Todos los usuarios activos
