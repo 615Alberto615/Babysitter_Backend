@@ -64,7 +64,7 @@ public class ChilActivityApi {
 
     // modificar por id
     @PutMapping("/{id}")
-    public ResponseEntity<ResponseDto<ChildActivityDto>> update(@PathVariable Integer id, @RequestBody ChildActivityEditDto childActivityDto, @RequestHeader("Authorization") String token){
+    public ResponseEntity<ResponseDto<ChildActivityEditDto>> update(@PathVariable Integer id, @RequestBody ChildActivityEditDto childActivityDto, @RequestHeader("Authorization") String token){
         childActivityBl.updateById(id, childActivityDto);
         try {
             if(!userBl.validateToken(token)){

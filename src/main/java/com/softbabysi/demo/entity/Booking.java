@@ -29,11 +29,11 @@ public class Booking implements Serializable {
     private Integer bookingEstimatedTime;
 
     @Column(name = "BOOKING_TIME_STAR", nullable = false)
-    @Temporal(TemporalType.DATE)
+    @Temporal(TemporalType.TIMESTAMP)
     private Date bookingTimeStart;
 
     @Column(name = "BOOKING_TIME_END", nullable = false)
-    @Temporal(TemporalType.DATE)
+    @Temporal(TemporalType.TIMESTAMP)
     private Date bookingTimeEnd;
 
     @Column(name = "BOOKING_DATE", nullable = false)
