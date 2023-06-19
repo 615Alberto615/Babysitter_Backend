@@ -8,6 +8,7 @@ import jakarta.transaction.Transactional;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import java.util.ArrayList;
 import java.util.List;
 
 @Service
@@ -26,9 +27,17 @@ public class TutorRulesBl {
         tutorRulesRepository.save(tutorRules);
     }
 
-    public List<TutorRules> findTutorRules(Integer id){
+    public List<TutorRulesDto> findTutorRules(Integer id){
         List<TutorRules> tutorRules = tutorRulesRepository.findTutorRulesByTutorId(id);
-        return tutorRules;
+        List<TutorRulesDto> tutorRulesDto = new ArrayList<>();
+        for (TutorRules tutorRules1 : tutorRules){
+            TutorRulesDto tutorRulesDto1 = new TutorRulesDto();
+            tutorRulesDto1.setTutorRulesId(tutorRules1.getTutorRulesId());
+            tutorRulesDto1.setTutor(tutorRules1.getTutor().getTutorId());
+            tutorRulesDto1.setRulesHome(tutorRules1.getRulesHome());
+            tutorRulesDto.add(tutorRulesDto1);
+        }
+        return tutorRulesDto;
     }
 
     //eliminar por id

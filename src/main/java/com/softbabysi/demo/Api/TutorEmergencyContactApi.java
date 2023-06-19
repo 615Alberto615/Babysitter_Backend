@@ -25,7 +25,7 @@ public class TutorEmergencyContactApi {
 
     // Mostrar los contactos de emergencia por id tutor
     @GetMapping("/tutor/{id}")
-    public ResponseEntity<ResponseDto<List<TutorEmergencyContact>>> findAllTutorEmergencyContact(@PathVariable Integer id, @RequestHeader("Authorization") String token){
+    public ResponseEntity<ResponseDto<List<TutorEmergencyContactDto>>> findAllTutorEmergencyContact(@PathVariable Integer id, @RequestHeader("Authorization") String token){
         try {
             if(!userBl.validateToken(token)){
                 return ResponseEntity.status(HttpStatus.UNAUTHORIZED).body(new ResponseDto<>(401, null, "Unauthorized"));

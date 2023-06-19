@@ -25,7 +25,8 @@ public class TutorRulesApi {
 
     //Mostrar los tutores con sus reglas por id tutor
     @GetMapping("/tutor/{id}")
-    public ResponseEntity<ResponseDto<List<TutorRules>>> findAllTutorRules(@PathVariable Integer id, @RequestHeader("Authorization") String token ){
+    public ResponseEntity<ResponseDto<List<TutorRulesDto>>> findAllTutorRules(@PathVariable Integer id, @RequestHeader("Authorization") String token ){
+
         try {
             if(!userBl.validateToken(token)){
                 return ResponseEntity.status(HttpStatus.UNAUTHORIZED).body(new ResponseDto<>(401, null, "Unauthorized"));
