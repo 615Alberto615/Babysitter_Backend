@@ -75,4 +75,23 @@ public class ChildActivityBl {
         childActivity.setActivityNone(childActivityDto.getActivityNone());
         childActivityRepository.save(childActivity);
     }
+
+    // modificar por id de tutor
+    public void updateByTutorId(Integer id, ChildActivityEditDto childActivityDto){
+        ChildActivity childActivity = childActivityRepository.findByTutordId(id);
+        childActivity.setActivityTableGames(childActivityDto.getActivityTableGames());
+        childActivity.setActivityArtsAndCrafts(childActivityDto.getActivityArtsAndCrafts());
+        childActivity.setActivityReadingOfBooks(childActivityDto.getActivityReadingOfBooks());
+        childActivity.setActivityCookingAndPastry(childActivityDto.getActivityCookingAndPastry());
+        childActivity.setActivityOutdoorActivities(childActivityDto.getActivityOutdoorActivities());
+        childActivity.setActivityBlockConstruction(childActivityDto.getActivityBlockConstruction());
+        childActivity.setActivityRolePlays(childActivityDto.getActivityRolePlays());
+        childActivity.setActivityMusicAndDance(childActivityDto.getActivityMusicAndDance());
+        childActivity.setActivityExercisesAndYoga(childActivityDto.getActivityExercisesAndYoga());
+        childActivity.setActivityGardening(childActivityDto.getActivityGardening());
+        childActivity.setActivityConstructionOfFortresses(childActivityDto.getActivityConstructionOfFortresses());
+        childActivity.setActivityMoviesAndTvShows(childActivityDto.getActivityMoviesAndTvShows());
+        childActivity.setActivityNone(childActivityDto.getActivityNone());
+        childActivityRepository.save(childActivity);
+    }
 }
