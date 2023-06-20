@@ -79,9 +79,9 @@ public class ChilActivityApi {
     }
 
     //modificar por id de tutor
-    @PutMapping("/tutor/{id}")
-    public ResponseEntity<ResponseDto<ChildActivityEditDto>> updateByTutorId(@PathVariable Integer id, @RequestBody ChildActivityEditDto childActivityDto, @RequestHeader("Authorization") String token){
-        childActivityBl.updateByTutorId(id, childActivityDto);
+        @PutMapping("/tutor/{id}")
+        public ResponseEntity<ResponseDto<ChildActivityEditDto>> updateByTutorId(@PathVariable Integer id, @RequestBody ChildActivityEditDto childActivityDto, @RequestHeader("Authorization") String token){
+            childActivityBl.updateByTutorId(id, childActivityDto);
         try {
             if(!userBl.validateToken(token)){
                 return ResponseEntity.status(HttpStatus.UNAUTHORIZED).body(new ResponseDto<>(401, null, "Unauthorized"));
