@@ -59,8 +59,8 @@ public class BookingBl {
         bookingRepository.save(booking);
         String asuntoPendiente = "Servicio Pendiente - ASAPsitter";
         String mensajePendiente = "Estimado/a,\n\n" +
-                "Le informamos que su solicitud de servicio ha sido recibida y está pendiente de asignación a una niñera en ASAPsitter. Estamos trabajando diligentemente para encontrar la mejor opción para satisfacer sus necesidades.\n\n" +
-                "Apreciamos su paciencia y pronto le notificaremos una vez que hayamos asignado una niñera a su solicitud. Si tiene alguna pregunta adicional, no dude en comunicarse con nosotros.\n\n" +
+                "Le informamos que ha recibido una nueva solicitud de servicio y está pendiente en ASAPsitter. Estamos trabajando diligentemente para encontrar la mejor opción para satisfacer sus necesidades.\n\n" +
+                "Apreciamos su compromiso y pronto le notificaremos de nuevos servicios de solicitudes de servicios para usted. Si tiene alguna pregunta adicional, no dude en comunicarse con nosotros.\n\n" +
                 "Atentamente,\nEl equipo de ASAPsitter";
         //Guarda notificacion
         notification.setBooking(booking);
@@ -183,8 +183,8 @@ public class BookingBl {
                 // Mensaje 1 (Pendiente)
                 String asuntoPendiente = "Servicio Pendiente - ASAPsitter";
                 String mensajePendiente = "Estimado/a,\n\n" +
-                        "Le informamos que su solicitud de servicio ha sido recibida y está pendiente de asignación a una niñera en ASAPsitter. Estamos trabajando diligentemente para encontrar la mejor opción para satisfacer sus necesidades.\n\n" +
-                        "Apreciamos su paciencia y pronto le notificaremos una vez que hayamos asignado una niñera a su solicitud. Si tiene alguna pregunta adicional, no dude en comunicarse con nosotros.\n\n" +
+                        "Le informamos que ha recibido una nueva solicitud de servicio y está pendiente en ASAPsitter. Estamos trabajando diligentemente para encontrar la mejor opción para satisfacer sus necesidades.\n\n" +
+                        "Apreciamos su compromiso y pronto le notificaremos de nuevos servicios de solicitudes de servicios para usted. Si tiene alguna pregunta adicional, no dude en comunicarse con nosotros.\n\n" +
                         "Atentamente,\nEl equipo de ASAPsitter";
                 booking.setBookingCompleted(1);
                 bookingRepository.save(booking);
