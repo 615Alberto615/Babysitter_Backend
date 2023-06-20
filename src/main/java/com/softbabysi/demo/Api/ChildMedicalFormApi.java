@@ -25,7 +25,7 @@ public class ChildMedicalFormApi {
 
     // Todos los registros medicos por id de niño
     @GetMapping(path = "/{id}/")
-    public ResponseEntity<ResponseDto<ChildMedicalForm>>  findByChildId(@PathVariable Integer id, @RequestHeader("Authorization") String token){
+    public ResponseEntity<ResponseDto<ChildMedicalFormDto>>  findByChildId(@PathVariable Integer id, @RequestHeader("Authorization") String token){
 
         if (!userBl.validateToken(token)) {
             return ResponseEntity.status(HttpStatus.UNAUTHORIZED).body(new ResponseDto<>(401, null, "Unauthorized"));
