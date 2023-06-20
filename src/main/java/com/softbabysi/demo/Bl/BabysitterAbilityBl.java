@@ -78,6 +78,25 @@ public class BabysitterAbilityBl {
         babysitterAbilityRepository.save(babysitterAbility);
     }
 
+    //modificar por id de la babysitter
+    public void updateByBabysitterId(Integer id, BabysitterAbilityEditDto babysitterAbilityEditDto){
+        BabysitterAbility babysitterAbility = babysitterAbilityRepository.findByBabysitterId(id);
+        babysitterAbility.setAbilityKnowledgeChildDevelopment(babysitterAbilityEditDto.getAbilityKnowledgeChildDevelopment());
+        babysitterAbility.setAbilityEmpathyAndPatience(babysitterAbilityEditDto.getAbilityEmpeathyAndPatience());
+        babysitterAbility.setAbilityEffectiveCommunication(babysitterAbilityEditDto.getAbilityEfectiveCommunication());
+        babysitterAbility.setAbilityOrganizationalSkills(babysitterAbilityEditDto.getAbilityOrganizationalSkills());
+        babysitterAbility.setAbilityFlexibilityAndAdaptability(babysitterAbilityEditDto.getAbilityFlexibilityAndAdaptability());
+        babysitterAbility.setAbilityFirstAid(babysitterAbilityEditDto.getAbilityFirstAid());
+        babysitterAbility.setAbilityCulturalSensitivity(babysitterAbilityEditDto.getAbilityCulturalSensitivity());
+        babysitterAbility.setAbilityConflictResolution(babysitterAbilityEditDto.getAbilityConflictsResolution());
+        babysitterAbility.setAbilityCreativity(babysitterAbilityEditDto.getAbilityCreativity());
+        babysitterAbility.setAbilitySpecialNeeds(babysitterAbilityEditDto.getAbilitySpecialNeeds());
+        babysitterAbility.setAbilityCarefulObservation(babysitterAbilityEditDto.getAbilityCrefulObservation());
+        babysitterAbility.setAbilityTasteForTeaching(babysitterAbilityEditDto.getAbilityTasteForTeaching());
+        babysitterAbility.setAbilityNone(babysitterAbilityEditDto.getAbilityNone());
+        babysitterAbilityRepository.save(babysitterAbility);
+    }
+
 
 
 }

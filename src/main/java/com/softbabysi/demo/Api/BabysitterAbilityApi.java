@@ -75,4 +75,19 @@ public class BabysitterAbilityApi {
             return ResponseEntity.ok(new ResponseDto<>(500, null, "error"));
         }
     }
+
+    //modificar por id de babysitter
+    @PutMapping("/babysitter/{id}")
+    public ResponseEntity<ResponseDto<BabysitterAbilityDto>> updateByBabysitterId(@PathVariable Integer id, @RequestBody BabysitterAbilityEditDto babysitterAbilityDto, @RequestHeader("Authorization") String token){
+        babysitterAbilityBl.updateByBabysitterId(id, babysitterAbilityDto);
+        try {
+            if(!userBl.validateToken(token)){
+                return ResponseEntity.status(HttpStatus.UNAUTHORIZED).body(new ResponseDto<>(401, null, "Unauthorized"));
+            }
+            System.out.println("token autorizado");
+            return ResponseEntity.ok(new ResponseDto<>(200, null, "BabysitterAbility updated successfully"));
+        }catch (Exception e) {
+            return ResponseEntity.ok(new ResponseDto<>(500, null, "error"));
+        }
+    }
 }
